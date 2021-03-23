@@ -3,3 +3,16 @@
 ################################################################################
 
 /.vs
+/src/.vs/Reec
+/src/Reec.ConsoleTest/bin/Debug/net5.0
+/src/Reec.ConsoleTest/obj
+/src/Reec.DataBase/bin/Debug/net5.0
+/src/Reec.DataBase/obj
+/src/Reec.Helpers/bin/Debug/net5.0
+/src/Reec.Helpers/obj
+/src/Reec.MySql/obj
+/src/Reec.MySql/bin/Debug/net5.0
+/src/Reec.Oracle/obj
+/src/Reec.Oracle/bin/Debug/net5.0
+/src/Reec.SqlServer/bin/Debug/net5.0
+/src/Reec.SqlServer/obj

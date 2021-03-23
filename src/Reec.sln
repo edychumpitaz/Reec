@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31005.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reec.Helpers", "Reec.Helpers\Reec.Helpers.csproj", "{A936A738-9B78-4CAF-8F12-6CB9A4E2F01F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reec.DataBase", "Reec.DataBase\Reec.DataBase.csproj", "{A55EA80C-76D1-410C-9947-F2610DBB8F86}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{0600DD56-ECFF-4227-9035-D467B265EF92}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8F547213-CB63-412D-823C-F93DE4CA29EB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reec.SqlServer", "Reec.SqlServer\Reec.SqlServer.csproj", "{C5D53854-2D0A-475A-84F3-64846BFF8767}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reec.ConsoleTest", "Reec.ConsoleTest\Reec.ConsoleTest.csproj", "{B677D485-9654-4CA1-905A-DEE1BD595E9B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reec.Oracle", "Reec.Oracle\Reec.Oracle.csproj", "{6BE50D60-27D5-495B-81F3-DF51651D74DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reec.MySql", "Reec.MySql\Reec.MySql.csproj", "{AEC15A3E-5BA2-45CD-85AF-F5B9D800889B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A936A738-9B78-4CAF-8F12-6CB9A4E2F01F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A936A738-9B78-4CAF-8F12-6CB9A4E2F01F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A936A738-9B78-4CAF-8F12-6CB9A4E2F01F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A936A738-9B78-4CAF-8F12-6CB9A4E2F01F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A55EA80C-76D1-410C-9947-F2610DBB8F86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A55EA80C-76D1-410C-9947-F2610DBB8F86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A55EA80C-76D1-410C-9947-F2610DBB8F86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A55EA80C-76D1-410C-9947-F2610DBB8F86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5D53854-2D0A-475A-84F3-64846BFF8767}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5D53854-2D0A-475A-84F3-64846BFF8767}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5D53854-2D0A-475A-84F3-64846BFF8767}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5D53854-2D0A-475A-84F3-64846BFF8767}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B677D485-9654-4CA1-905A-DEE1BD595E9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B677D485-9654-4CA1-905A-DEE1BD595E9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B677D485-9654-4CA1-905A-DEE1BD595E9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B677D485-9654-4CA1-905A-DEE1BD595E9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BE50D60-27D5-495B-81F3-DF51651D74DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BE50D60-27D5-495B-81F3-DF51651D74DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BE50D60-27D5-495B-81F3-DF51651D74DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BE50D60-27D5-495B-81F3-DF51651D74DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEC15A3E-5BA2-45CD-85AF-F5B9D800889B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEC15A3E-5BA2-45CD-85AF-F5B9D800889B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEC15A3E-5BA2-45CD-85AF-F5B9D800889B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEC15A3E-5BA2-45CD-85AF-F5B9D800889B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A936A738-9B78-4CAF-8F12-6CB9A4E2F01F} = {8F547213-CB63-412D-823C-F93DE4CA29EB}
+		{A55EA80C-76D1-410C-9947-F2610DBB8F86} = {8F547213-CB63-412D-823C-F93DE4CA29EB}
+		{C5D53854-2D0A-475A-84F3-64846BFF8767} = {8F547213-CB63-412D-823C-F93DE4CA29EB}
+		{B677D485-9654-4CA1-905A-DEE1BD595E9B} = {0600DD56-ECFF-4227-9035-D467B265EF92}
+		{6BE50D60-27D5-495B-81F3-DF51651D74DC} = {8F547213-CB63-412D-823C-F93DE4CA29EB}
+		{AEC15A3E-5BA2-45CD-85AF-F5B9D800889B} = {8F547213-CB63-412D-823C-F93DE4CA29EB}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {85D35906-5C36-424D-9D35-EB31501EFC40}
+	EndGlobalSection
+EndGlobal
