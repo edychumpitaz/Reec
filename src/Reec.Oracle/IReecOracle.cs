@@ -2,7 +2,7 @@
 using Reec.DataBase;
 
 
-namespace Reec.MySql
+namespace Reec.Oracle 
 {
     public interface IReecOracle: IDbBase<OracleConnection, OracleCommand, OracleParameter, OracleTransaction>
     {

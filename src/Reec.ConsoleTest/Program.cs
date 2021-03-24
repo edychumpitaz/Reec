@@ -1,6 +1,5 @@
 ﻿using Reec.SqlServer;
 using System;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace Reec.ConsoleTest
@@ -15,10 +14,10 @@ namespace Reec.ConsoleTest
 
             using ReecSqlServer reecSqlServer = new ReecSqlServer(connection);
             using var t = reecSqlServer.BeginTransaccion();
-             
+
             //var rowsAffected =  reecSqlServer.QueryRowsAffected("update [dbo].[HttpLog] set RequestHeader = 'Reec prueba' where Id = 1");
 
-            var rowsAffected = await reecSqlServer.QueryRowsAffectedAsync("update [dbo].[HttpLog] set RequestHeader = 'Reec prueba 3' where Id = 1");
+            var rowsAffected = await reecSqlServer.QueryRowsAffectedAsync("update [dbo].[HttpLog] set RequestHeader = 'Reec prueba 5' where Id = 1");
 
             var dt = reecSqlServer.QueryToDataTable(queryFull);
 
@@ -28,5 +27,6 @@ namespace Reec.ConsoleTest
             Console.WriteLine("Hello World!");
 
         }
+
     }
 }

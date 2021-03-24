@@ -16,3 +16,8 @@
 /src/Reec.Oracle/bin/Debug/net5.0
 /src/Reec.SqlServer/bin/Debug/net5.0
 /src/Reec.SqlServer/obj
+/src/Reec.DataBase/bin/Debug/netstandard2.1
+/src/Reec.Helpers/bin/Debug/netstandard2.1
+/src/Reec.MySql/bin/Debug/netstandard2.1
+/src/Reec.Oracle/bin/Debug/netstandard2.1
+/src/Reec.SqlServer/bin/Debug/netstandard2.1

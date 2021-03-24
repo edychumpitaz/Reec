@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Reec.MySql
+namespace Reec.Oracle 
 {
     public class ReecOracle : DbBase<OracleConnection, OracleCommand, OracleParameter, OracleTransaction>, IReecOracle
     {
