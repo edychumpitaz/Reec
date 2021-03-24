@@ -6,6 +6,13 @@ using System.Threading.Tasks;
 
 namespace Reec.DataBase
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="TConnection">Tipo de dato heredado de DbConnection</typeparam>
+    /// <typeparam name="TCommand">Tipo de dato heredado de DbCommand</typeparam>
+    /// <typeparam name="TParameter">Tipo de dato heredado de DbParameter</typeparam>
+    /// <typeparam name="TTransaction">Tipo de dato heredado de DbTransaction</typeparam>
     public partial interface IDbBase<TConnection, TCommand, TParameter, TTransaction>                              
                                 where TConnection : DbConnection
                                 where TCommand : DbCommand

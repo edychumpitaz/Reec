@@ -12,6 +12,7 @@ namespace Reec.ConsoleTest
             var connection = "Data Source=asus\\sql2019;Initial Catalog=Utility;Persist Security Info=True;User ID=sa;Password=Chump1taz; App=Utility.WebApi; Max Pool Size=300;";
             var queryFull = "select * from HttpLog";
 
+
             using ReecSqlServer reecSqlServer = new ReecSqlServer(connection);
             using var t = reecSqlServer.BeginTransaccion();
 

@@ -2,6 +2,20 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
+    <Authors>Edy Erwin Chumpitaz Ramos</Authors>
+    <Description>Conexión ADO.NET de MySql.Data para ejecución de query, store procedure, transacción de manera nativa y conversión a tipo de dato genérico.</Description>
+    <PackageProjectUrl>https://github.com/edychumpitaz/Reec</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/edychumpitaz/Reec</RepositoryUrl>
+    <RepositoryType>GitHub</RepositoryType>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageTags>MySql, ADO.NET, reec</PackageTags>
+    <Version>1.0.3</Version>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>C:\NugetLocal\Reec.MySql</OutputPath>
+    <DocumentationFile>C:\NugetLocal\Reec.MySql\Reec.MySql.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

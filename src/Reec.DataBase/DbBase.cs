@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 
 namespace Reec.DataBase
 {
+
+
     public partial class DbBase<TConnection, TCommand, TParameter, TTransaction> : IDisposable,
                             IDbBase<TConnection, TCommand, TParameter, TTransaction>
                             where TConnection : DbConnection

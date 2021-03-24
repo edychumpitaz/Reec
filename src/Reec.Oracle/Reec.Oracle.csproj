@@ -2,6 +2,20 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
+    <Authors>Edy Erwin Chumpitaz Ramos</Authors>
+    <Description>Conexión ADO.NET de Oracle.ManagedDataAccess para ejecución de query, store procedure, transacción de manera nativa y conversión a tipo de dato genérico.</Description>
+    <RepositoryUrl>https://github.com/edychumpitaz/Reec</RepositoryUrl>
+    <RepositoryType>GitHub</RepositoryType>
+    <PackageProjectUrl>https://github.com/edychumpitaz/Reec</PackageProjectUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageTags>Oracle, ADO.NET, reec</PackageTags>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <Version>1.0.3</Version>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>C:\NugetLocal\Reec.Oracle</OutputPath>
+    <DocumentationFile>C:\NugetLocal\Reec.Oracle\Reec.Oracle.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

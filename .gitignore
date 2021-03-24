@@ -21,3 +21,9 @@
 /src/Reec.MySql/bin/Debug/netstandard2.1
 /src/Reec.Oracle/bin/Debug/netstandard2.1
 /src/Reec.SqlServer/bin/Debug/netstandard2.1
+/src/Reec.ConsoleTest/bin/Release/net5.0
+/src/Reec.DataBase/bin/Release/netstandard2.1
+/src/Reec.Helpers/bin
+/src/Reec.MySql/bin/Release
+/src/Reec.Oracle/bin/Release
+/src/Reec.SqlServer/bin/Release

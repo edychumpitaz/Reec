@@ -2,6 +2,21 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
+    <Authors>Edy Erwin Chumpitaz Ramos</Authors>
+    <Description>Conexión ADO.NET de SqlServer para ejecución de query, store procedure, transacción de manera nativa y conversión a tipo de dato genérico.</Description>
+    <PackageProjectUrl>https://github.com/edychumpitaz/Reec</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/edychumpitaz/Reec</RepositoryUrl>
+    <RepositoryType>GitHub</RepositoryType>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.3</Version>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageTags>SqlServer, ADO.NET, Sql, reec</PackageTags>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>C:\NugetLocal\Reec.SqlServer</OutputPath>
+    <DocumentationFile>C:\NugetLocal\Reec.SqlServer\Reec.SqlServer.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -9,7 +24,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Reec.DataBase\Reec.DataBase.csproj" />
+    <ProjectReference Include="..\Reec.DataBase\Reec.DataBase.csproj">
+      <Aliases></Aliases>
+    </ProjectReference>
   </ItemGroup>
+
 
 </Project>
