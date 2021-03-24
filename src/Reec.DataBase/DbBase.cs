@@ -70,7 +70,6 @@ namespace Reec.DataBase
             this.Transaction = transaction;
         }
 
-
         
         public TTransaction BeginTransaccion()
         {
@@ -79,7 +78,6 @@ namespace Reec.DataBase
             this.Transaction = (TTransaction)Connection.BeginTransaction();
             return this.Transaction;
         }
-
         
         public void UseTransaccion(TTransaction transaction)
         {
@@ -159,7 +157,6 @@ namespace Reec.DataBase
 
         }
 
-        
         public DbDataReader QueryReader(string query)
         {
             using var Command = CommandQuery(query);
@@ -178,7 +175,6 @@ namespace Reec.DataBase
 
 
 
-        
         public async Task<int> QueryRowsAffectedAsync(string query, CancellationToken cancellationToken = default)
         {
             using var Command = CommandQuery(query);
@@ -188,8 +184,7 @@ namespace Reec.DataBase
                 if (this.Transaction != null) await this.Transaction.RollbackAsync();
             return reader;
         }
-
-         
+  
         public int QueryRowsAffected(string query)
         {
             using var Command = CommandQuery(query);
@@ -204,7 +199,6 @@ namespace Reec.DataBase
 
 
         #region Ejecución de StoredProcedure       
-
         
         public async Task<DbDataReader> ExecuteReaderAsync(string storeProcedure, CancellationToken cancellationToken = default, params TParameter[] parameters)
         {
@@ -221,7 +215,6 @@ namespace Reec.DataBase
             else
                 return await Command.ExecuteReaderAsync(CommandBehavior.CloseConnection, cancellationToken);
         }
-
         
         public async Task<DbDataReader> ExecuteReaderAsync(string storeProcedure, params TParameter[] parameters)
         {
@@ -238,7 +231,6 @@ namespace Reec.DataBase
             else
                 return await Command.ExecuteReaderAsync(CommandBehavior.CloseConnection);
         }
-
         
         public DbDataReader ExecuteReader(string storeProcedure, params TParameter[] parameters)
         {
@@ -258,7 +250,6 @@ namespace Reec.DataBase
         }
 
 
-
         
         public async Task<int> ExecuteNonQueryAsync(string storeProcedure, CancellationToken cancellationToken = default, params TParameter[] parameters)
         {
@@ -270,7 +261,6 @@ namespace Reec.DataBase
             
             return vResult;
         }
-
         
         public async Task<int> ExecuteNonQueryAsync(string storeProcedure, params TParameter[] parameters)
         {
@@ -279,7 +269,6 @@ namespace Reec.DataBase
             if (this.Transaction == null) await this.Connection.CloseAsync();
             return vResult;
         }
-
         
         public int ExecuteNonQuery(string storeProcedure, params TParameter[] parameters)
         {
@@ -288,7 +277,6 @@ namespace Reec.DataBase
             if (this.Transaction == null) this.Connection.Close();
             return vResult;
         }
-
 
         #endregion
 
