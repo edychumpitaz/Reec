@@ -39,7 +39,7 @@ var dataTable1 = HelperConvert.ListEntityToDataTable(listEntity, "propiedad1", "
 //El valor de contentType = "application/pdf"
 var contentTypePdf = HelperContentType.GetContentType("test.pdf");
 
-//El valor de contentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+//El valor de contentTypeXlsx = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
 var contentTypeXlsx = HelperContentType.GetContentType("test1.xlsx");
 ```
 
