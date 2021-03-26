@@ -60,7 +60,7 @@ var dataTable = reecSqlServer.QueryToDataTable("select * from Table1");
 var rowsAffected = reecSqlServer.QueryRowsAffected("update [Tabla1] set columna1 = 'prueba' where Id = 1");
 
 
-//Ejecuta un StoreProcedure y retorna el número de filas afectadas, envio de parametros nativos
+//Ejecuta un StoreProcedure y retorna el número de filas afectadas, envío de parametros nativos
 var rowsAffected1 = reecSqlServer.ExecuteNonQuery("Name_StoreProcedure",
                        new SqlParameter("@param1", 1),
                        new SqlParameter("@param2", "prueba SP 3"));
