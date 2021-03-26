@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Reec.DataBase
 {
     /// <summary>
-    /// 
+    /// Creación de conexión nativa a cualquier proveedor de base de datos. SqlServer, Oracle, MySql, etc
     /// </summary>
     /// <typeparam name="TConnection">Tipo de dato heredado de DbConnection</typeparam>
     /// <typeparam name="TCommand">Tipo de dato heredado de DbCommand</typeparam>
@@ -90,7 +90,6 @@ namespace Reec.DataBase
         /// <param name="parameters"></param>
         /// <returns></returns>
         Task<DbDataReader> ExecuteReaderAsync(string storeProcedure, params TParameter[] parameters);
-
 
 
         /// <summary>

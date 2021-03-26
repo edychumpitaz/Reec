@@ -5,19 +5,24 @@ VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{0600DD56-ECFF-4227-9035-D467B265EF92}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reec.DataBase", "Reec.DataBase\Reec.DataBase.csproj", "{B82DF4B2-9027-40B8-A598-FA6A384E7CF2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reec.DataBase", "Reec.DataBase\Reec.DataBase.csproj", "{B82DF4B2-9027-40B8-A598-FA6A384E7CF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reec.Helpers", "Reec.Helpers\Reec.Helpers.csproj", "{9E77DA3C-B7E9-400D-99A1-B0A18236BA0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reec.Helpers", "Reec.Helpers\Reec.Helpers.csproj", "{9E77DA3C-B7E9-400D-99A1-B0A18236BA0E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{43D6822F-AD4D-4689-A85A-C1D0368121F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reec.SqlServer", "Reec.SqlServer\Reec.SqlServer.csproj", "{09442BC9-09BF-43FB-8515-03C5E6CF089D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reec.SqlServer", "Reec.SqlServer\Reec.SqlServer.csproj", "{09442BC9-09BF-43FB-8515-03C5E6CF089D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reec.Oracle", "Reec.Oracle\Reec.Oracle.csproj", "{AB71A61F-A9C3-4827-93D1-036001690DE9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reec.Oracle", "Reec.Oracle\Reec.Oracle.csproj", "{AB71A61F-A9C3-4827-93D1-036001690DE9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reec.MySql", "Reec.MySql\Reec.MySql.csproj", "{788EFFA3-4EE4-4267-BCCB-8574B55224C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reec.MySql", "Reec.MySql\Reec.MySql.csproj", "{788EFFA3-4EE4-4267-BCCB-8574B55224C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reec.ConsoleTest", "Reec.ConsoleTest\Reec.ConsoleTest.csproj", "{BFA4A130-1A24-4961-B439-2241EC56ECAB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reec.ConsoleTest", "Reec.ConsoleTest\Reec.ConsoleTest.csproj", "{BFA4A130-1A24-4961-B439-2241EC56ECAB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1D5E0049-5EF7-457D-9C1F-A59D3865FE06}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

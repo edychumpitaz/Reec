@@ -82,7 +82,7 @@ namespace Reec.DataBase
         /// Si el StoreProcedure retorna mas de una fila, la función retornara null.
         /// </summary>
         /// <typeparam name="TEntity">Tipo de objeto de retorno.</typeparam>
-        /// <param name="StoreProcedure"></param>
+        /// <param name="storeProcedure"></param>
         /// <param name="parameters"></param>
         /// <returns></returns>
         TEntity ExecuteToEntity<TEntity>(string storeProcedure, params TParameter[] parameters) where TEntity : class;
@@ -103,7 +103,7 @@ namespace Reec.DataBase
         /// Si el StoreProcedure retorna mas de una fila, la función retornara null.
         /// </summary>
         /// <typeparam name="TEntity">Tipo de objeto de retorno.</typeparam>
-        /// <param name="StoreProcedure"></param>
+        /// <param name="storeProcedure"></param>
         /// <param name="parameters"></param>
         /// <returns></returns>
         Task<TEntity> ExecuteToEntityAsync<TEntity>(string storeProcedure, params TParameter[] parameters) where TEntity : class;
@@ -115,7 +115,7 @@ namespace Reec.DataBase
         /// Si el StoreProcedure no retorna filas, la función retornara null.
         /// </summary>
         /// <typeparam name="TEntity">Tipo de entidad para rtornarlo como lista</typeparam>
-        /// <param name="StoreProcedure"></param>
+        /// <param name="storeProcedure"></param>
         /// <param name="parameters"></param>
         /// <returns></returns>
         List<TEntity> ExecuteToListEntity<TEntity>(string storeProcedure, params TParameter[] parameters) where TEntity : class;
@@ -136,7 +136,7 @@ namespace Reec.DataBase
         /// Si el StoreProcedure no retorna filas, la función retornara null.
         /// </summary>
         /// <typeparam name="TEntity">Tipo de entidad para rtornarlo como lista</typeparam>
-        /// <param name="StoreProcedure"></param>
+        /// <param name="storeProcedure"></param>
         /// <param name="parameters"></param>
         /// <returns></returns>
         Task<List<TEntity>> ExecuteToListEntityAsync<TEntity>(string storeProcedure, params TParameter[] parameters) where TEntity : class;

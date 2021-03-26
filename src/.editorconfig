@@ -1,0 +1,7 @@
+﻿[*.cs]
+
+# CS1570: El comentario XML tiene XML formado incorrectamente
+dotnet_diagnostic.CS1570.severity = silent
+
+# CS1591: Falta el comentario XML para el tipo o miembro visible públicamente
+dotnet_diagnostic.CS1591.severity = silent

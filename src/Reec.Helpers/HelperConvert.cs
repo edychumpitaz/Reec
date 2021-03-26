@@ -32,7 +32,9 @@ namespace Reec.Helpers
                 if (dataReader != null && !dataReader.IsClosed && dataReader.HasRows)
                 {
                     list = new List<TEntity>();
-                    var properties = typeof(TEntity).GetProperties();
+                    var properties = typeof(TEntity).GetProperties();                 
+
+
                     var columnNames = dataReader.GetColumnSchema().Select(x => x.ColumnName);
 
                     var listProperties = (from prop in properties

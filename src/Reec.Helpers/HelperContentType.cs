@@ -5,10 +5,20 @@ using System.Text;
 
 namespace Reec.Helpers
 {
+
+    /// <summary>
+    /// Ayuda pata ContentType de archivos.
+    /// </summary>
     public static class HelperContentType
     {
 
         private static readonly FileExtensionContentTypeProvider FileContentType = new FileExtensionContentTypeProvider();
+
+        /// <summary>
+        /// Obtener ContentType apartir del nombre de un archivo.
+        /// </summary>
+        /// <param name="FileName">Nombre de archivo</param>
+        /// <returns></returns>
         public static string GetContentType(string FileName)
         {
 
