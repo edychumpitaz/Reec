@@ -1,7 +1,7 @@
 # Reec
 Paquetes para realizar conversiones de tipos de datos génericos, obtener tipo de ContentType apartir de un nombre de archivo. 
 Alto rendimiento en conexión a base de datos de manera nativa y de fácil uso en SqlServer, Oracle, MySql.
-Se agregaran mas conexiones de base de datos proximamente.
+Se agregaran mas conexiones de base de datos próximamente.
 
 ## Comenzando 🚀
 
