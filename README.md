@@ -72,6 +72,9 @@ var rowsAffected2 = reecSqlServer.ExecuteNonQuery("Name_StoreProcedure");
 //Ejecuta un StoreProcedure y retorna un DataReader.
 var dataReader = reecSqlServer.ExecuteReader("Name_StoreProcedure");
 
+//Ejecuta un StoreProcedure y retorna un DataSet. Si el StoreProcedure no retorna filas, la función retorna null.
+var dataSet = reecSqlServer.ExecuteToDataSet("Name_StoreProcedure")
+
 //Ejecuta un StoreProcedure y retorna un ListEntity. Si el StoreProcedure no retorna filas, la función retornara null.
 var listEntity = reecSqlServer.ExecuteToListEntity<TEntity>("Name_StoreProcedure");
 
