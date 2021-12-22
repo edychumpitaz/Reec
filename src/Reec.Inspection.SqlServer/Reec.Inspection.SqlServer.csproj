@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <Authors>Edy Erwin Chumpitaz Ramos</Authors>
+    <Product>Reec.Inspection.SqlServer</Product>
+    <RepositoryUrl>https://github.com/edychumpitaz/Reec</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/edychumpitaz/Reec</PackageProjectUrl>
+    <RepositoryType>GitHub</RepositoryType>
+    <PackageTags>SqlServer, reec, Exception, Log, Audit, Auditoria, Error</PackageTags>
+    <Description>Guardado automático de log de errores en dase de datos para SqlServer, te permite crear un Id de identificación del error para que pueda ser inpecticado como un ticket de atención.
+Algunos datos de guardado:
+
+*Path
+*RequestBody
+*RequestHeader
+*TraceIdentifier
+*ExceptionMessage
+*InnerExceptionMessage
+*StackTrace
+</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.22" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Reec.Inspection\Reec.Inspection.csproj" />
+  </ItemGroup>
+
+</Project>

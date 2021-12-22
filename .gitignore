@@ -27,3 +27,17 @@
 /src/Reec.MySql/bin/Release
 /src/Reec.Oracle/bin/Release
 /src/Reec.SqlServer/bin/Release
+/src/Reec.Api.Test/obj
+/src/Reec.Api.Test/bin/Debug/netcoreapp3.1
+/src/Reec.DataBase/bin/Debug
+/src/Reec.Inspection/obj
+/src/Reec.Inspection/bin/Debug/netstandard2.1
+/src/Reec.Inspection.SqlServer/bin/Debug/netstandard2.1
+/src/Reec.Inspection.SqlServer/obj
+/src/Reec.MySql/bin/Debug
+/src/Reec.Oracle/bin/Debug
+/src/Reec.SqlServer/bin/Debug
+/src/Reec.Api.Test.Nuget/bin/Debug/netcoreapp3.1
+/src/Reec.Api.Test.Nuget/obj
+/src/Reec.Inspection/bin/Debug
+/src/Reec.Inspection.SqlServer/bin/Debug

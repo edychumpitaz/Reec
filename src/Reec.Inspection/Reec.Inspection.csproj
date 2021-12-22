@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>Guardado automático de log de errores en dase de datos, te permite crear un Id de identificación del error para que pueda ser inpecticado como un ticket de atención. 
+Algunos datos de guardado:
+
+*Path
+*RequestBody
+*RequestHeader
+*TraceIdentifier
+*ExceptionMessage
+*InnerExceptionMessage
+*StackTrace
+</Description>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/edychumpitaz/Reec</PackageProjectUrl>
+    <Authors>Edy Erwin Chumpitaz Ramos</Authors>
+    <RepositoryUrl>https://github.com/edychumpitaz/Reec</RepositoryUrl>
+    <RepositoryType>GitHub</RepositoryType>
+    <PackageTags>Reec, Exception, Log, Audit, Auditoria, Error</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="BeLogBase.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.22" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.22">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+</Project>
