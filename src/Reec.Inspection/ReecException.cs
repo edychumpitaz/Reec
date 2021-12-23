@@ -27,6 +27,17 @@ namespace Reec.Inspection
         }
 
         /// <summary>
+        /// Se utiliza para mensajes simples.
+        /// </summary>
+        /// <param name="category"></param>
+        /// <param name="messageUser">Lista de mensajes que retornara al cliente</param>
+        public ReecException(Category category, List<string> messageUser)
+            : base(string.Join("|", messageUser))
+        {
+            this.ReecMessage = new ReecMessage(category, messageUser);
+        }
+
+        /// <summary>
         /// Captura de error personalizada con ExceptionMessage de origen.
         /// </summary>
         /// <param name="category"></param>

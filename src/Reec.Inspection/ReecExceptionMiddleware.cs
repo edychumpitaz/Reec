@@ -26,17 +26,18 @@ namespace Reec.Inspection
         private readonly RequestDelegate _next;
         private readonly ILogger<ReecExceptionMiddleware<TDbContext>> _logger;
         private readonly TDbContext _dbContext;
-
+        private readonly ReecExceptionOptions _reecExceptionOptions;
 
         public ReecExceptionMiddleware(RequestDelegate next,
                                         ILogger<ReecExceptionMiddleware<TDbContext>> logger,
-                                        TDbContext dbContext)
+                                        TDbContext dbContext,
+                                        ReecExceptionOptions reecExceptionOptions)
         {
             this._next = next;
             this._logger = logger;
             //var scope = applicationBuilder.ApplicationServices.CreateScope();
-            this._dbContext = dbContext;            
-
+            this._dbContext = dbContext;
+            this._reecExceptionOptions = reecExceptionOptions;
         }
 
         public async Task Invoke(HttpContext httpContext)
@@ -175,12 +176,20 @@ namespace Reec.Inspection
                 RequestBody = await sr.ReadToEndAsync();
             }
 
+            var settings = new JsonSerializerSettings
+            {
+                //ContractResolver = new CamelCasePropertyNamesContractResolver(),
+                ContractResolver = new DefaultContractResolver(),
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+            };
+
             BeLogHttp beLogHttp = new BeLogHttp
             {
+                ApplicationName = _reecExceptionOptions.ApplicationName,
                 Category = reecMessage.Category,
                 CategoryDescription = reecMessage.Category.ToString(),
                 HttpStatusCode = (HttpStatusCode)httpContext.Response.StatusCode,
-                MessageUser = string.Join(";", reecMessage.Message),
+                MessageUser = JsonConvert.SerializeObject(reecMessage.Message, settings),
                 Path = httpContext.Request.Path.Value,
                 Method = httpContext.Request.Method,
                 Host = httpContext.Request.Host.Host,
@@ -210,15 +219,24 @@ namespace Reec.Inspection
             if (ex.InnerException != null)
                 beLogHttp.InnerExceptionMessage = ex.InnerException.Message;
 
+
             var header = httpContext.Request.Headers.Select(t => new { t.Key, Value = t.Value.ToString() });
-
-
-            var settings = new JsonSerializerSettings
+            if (_reecExceptionOptions.HeaderKeysInclude != null && _reecExceptionOptions.HeaderKeysInclude.Count > 0)
             {
-                //ContractResolver = new CamelCasePropertyNamesContractResolver(),
-                ContractResolver = new DefaultContractResolver(),
-                ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
-            };
+                header = (from a in header
+                          join b in _reecExceptionOptions.HeaderKeysInclude
+                          on a.Key equals b
+                          select a).ToList();
+            }
+            else if (_reecExceptionOptions.HeaderKeysExclude != null && _reecExceptionOptions.HeaderKeysExclude.Count > 0)
+            {
+                var exclude = (from a in header
+                               join b in _reecExceptionOptions.HeaderKeysExclude
+                               on a.Key equals b
+                               select a).ToList();
+                header = header.Except(exclude).ToList();
+            }
+
 
             beLogHttp.RequestHeader = JsonConvert.SerializeObject(header, settings);
             return beLogHttp;

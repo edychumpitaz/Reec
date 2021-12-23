@@ -6,17 +6,20 @@ namespace Reec.Inspection.SqlServer
 {
     public class DbContextSqlServer : InspectionDbContext
     {
-       
-        public DbContextSqlServer([NotNull] DbContextOptions options) : base(options)
+        private readonly ReecExceptionOptions _reecExceptionOptions;
+
+        public DbContextSqlServer([NotNull] DbContextOptions options, ReecExceptionOptions reecExceptionOptions) : base(options)
         {
             //ChangeTracker.LazyLoadingEnabled = false;
             //ChangeTracker.AutoDetectChangesEnabled = true; 
+            this._reecExceptionOptions = reecExceptionOptions;
         }
 
-        public DbContextSqlServer()
+        public DbContextSqlServer(ReecExceptionOptions reecExceptionOptions)
         {
             ChangeTracker.LazyLoadingEnabled = false;
             ChangeTracker.AutoDetectChangesEnabled = true;
+            this._reecExceptionOptions = reecExceptionOptions;
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -28,12 +31,18 @@ namespace Reec.Inspection.SqlServer
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-     
+
             modelBuilder.Entity<BeLogHttp>(entity =>
             {
-                entity.ToTable("LogHttp");
+                
+                if (string.IsNullOrWhiteSpace(_reecExceptionOptions.Schema))
+                    entity.ToTable(_reecExceptionOptions.TableName);
+                else                
+                    entity.ToTable(_reecExceptionOptions.TableName, _reecExceptionOptions.Schema);
+                               
                 entity.HasKey(e => e.IdLogHttp);
                 entity.Property(e => e.IdLogHttp).ValueGeneratedOnAdd();
+                entity.Property(e => e.ApplicationName).HasColumnType("varchar(100)");
                 entity.Property(e => e.CategoryDescription).HasMaxLength(50).HasColumnType("varchar(50)");
                 entity.Property(e => e.MessageUser).HasColumnType("varchar(max)");
                 entity.Property(e => e.ExceptionMessage).HasColumnType("varchar(max)");
@@ -51,17 +60,17 @@ namespace Reec.Inspection.SqlServer
                 entity.Property(e => e.IpAddress).HasMaxLength(30).HasColumnType("varchar(30)");
                 entity.Property(e => e.CreateUser).HasMaxLength(40).IsUnicode(false);
                 entity.Property(e => e.CreateDate).HasColumnType("DateTime2(7)");
-                
+
                 //entity.Property(e => e.UpdateDate).HasColumnType("DateTime2(7)");
                 //entity.Property(e => e.UpdateUser).HasMaxLength(40).IsUnicode(false);
 
-            });          
-           
-            
+            });
+
+
 
         }
 
-       
+
     }
 
 

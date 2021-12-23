@@ -28,10 +28,19 @@ namespace Reec.Api.Test.Controllers
         public IEnumerable<WeatherForecast> Get()
         {
             var rng = new Random();
-            //if (true)//validacion 
+
+
+            //if (true)
             //{
-            //    throw new ReecException(ReecEnums.Category.BusinessLogic, "regla de negocio de aceites.");
+            //    throw new ReecException(Inspection.ReecEnums.Category.BusinessLogic, "regla de negocio 1.");
+
             //}
+
+
+            //List<string> mensajes = new List<string> { "Regla de negocio", "valicación de campos" };
+            //throw new ReecException(Inspection.ReecEnums.Category.Warning, mensajes);
+
+
 
             var numerador = 1;
             var denominador = 0;

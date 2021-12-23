@@ -1,10 +1,13 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Reec.Inspection;
+using Reec.Inspection.SqlServer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,15 +28,44 @@ namespace Reec.Api.Test.Nuget
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            var local = "Data Source=.;Initial Catalog=prueba;Integrated Security=True";
+            var dev = "data source=172.17.135.17;initial catalog=Dev_ActiveBreak;user id=DEV_ACTIVEBREAK_DBO;password=7Q2WOZJv!#REUdc";
+
+
+            services.AddReecException<DbContextSqlServer>(options =>
+                            options.UseSqlServer(local));
+
+
+
+            //Ejemplo de migracion con ruta de namespace(MigrationsAssembly)
+            //services.AddReecException<DbContextSqlServer>(options =>
+            //          options.UseSqlServer(local, x => x.MigrationsAssembly("Reec.Inspection.SqlServer")));
+
+
+            //Mas formas de personalizar
+            //services.AddReecExceptionOptions<DbContextSqlServer>(options =>
+            //          options.UseSqlServer(local, x => x.MigrationsAssembly("Reec.Inspection.SqlServer")),
+            //          new ReecExceptionOptions
+            //          {
+            //              HeaderKeysExclude = new List<string> { "Postman-Token", "User-Agent" }
+            //          });
+
+
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+
+            app.UseReecExceptionMiddleware<DbContextSqlServer>();
+
+            //if (env.IsDevelopment())
+            //{
+            //    app.UseDeveloperExceptionPage();
+            //}
 
             app.UseRouting();
 

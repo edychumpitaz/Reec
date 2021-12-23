@@ -12,6 +12,11 @@ namespace Reec.Inspection
         public int IdLogHttp { get; set; }
 
         /// <summary>
+        /// Nombre del aplicativo que registra el error.
+        /// </summary>
+        public string ApplicationName { get; set; }
+
+        /// <summary>
         /// Tipo de mensaje que retornará al usuario.
         /// </summary>
         public Category Category { get; set; }

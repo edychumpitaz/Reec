@@ -41,3 +41,7 @@
 /src/Reec.Api.Test.Nuget/obj
 /src/Reec.Inspection/bin/Debug
 /src/Reec.Inspection.SqlServer/bin/Debug
+/src/Reec.Api.Test/bin/Release/netcoreapp3.1
+/src/Reec.Api.Test.Nuget/bin/Release/netcoreapp3.1
+/src/Reec.Inspection/bin/Release
+/src/Reec.Inspection.SqlServer/bin/Release

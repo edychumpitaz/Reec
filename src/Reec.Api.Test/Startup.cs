@@ -30,13 +30,39 @@ namespace Reec.Api.Test
 
             services.AddControllers();
 
+            var local = "Data Source=.;Initial Catalog=prueba;Integrated Security=True";
+            var dev = "data source=172.17.135.17;initial catalog=Dev_ActiveBreak;user id=DEV_ACTIVEBREAK_DBO;password=7Q2WOZJv!#REUdc";
 
-            services.AddDbContext<DbContextSqlServer>(options =>
-                options.UseSqlServer("Data Source=.;Initial Catalog=prueba;Integrated Security=True"),
-                ServiceLifetime.Transient, ServiceLifetime.Transient);
+
+            services.AddReecException<DbContextSqlServer>(options =>
+                            options.UseSqlServer(local));
+
+
+
+            //Ejemplo de migracion con ruta de namespace(MigrationsAssembly)
+            //services.AddReecException<DbContextSqlServer>(options =>
+            //          options.UseSqlServer(local, x => x.MigrationsAssembly("Reec.Inspection.SqlServer")));
+
+
+            //Mas formas de personalizar
+            //services.AddReecExceptionOptions<DbContextSqlServer>(options =>
+            //          options.UseSqlServer(local, x => x.MigrationsAssembly("Reec.Inspection.SqlServer")),
+            //          new ReecExceptionOptions
+            //          {
+            //              HeaderKeysExclude = new List<string> { "Postman-Token", "User-Agent" }
+            //          });
+
 
             //services.AddDbContext<DbContextSqlServer>(options =>
-            // options.UseSqlServer("Data Source=.;Initial Catalog=prueba;Integrated Security=True"));
+            //    options.UseSqlServer(local),
+            //    ServiceLifetime.Transient, ServiceLifetime.Transient);
+
+            //services.AddDbContext<DbContextSqlServer>(options =>
+            //    options.UseSqlServer(local, x => x.MigrationsAssembly(typeof(Startup).Assembly.FullName)),
+            //    ServiceLifetime.Transient, ServiceLifetime.Transient);
+            //services.AddDbContext<DbContextSqlServer>(options =>
+            //   options.UseSqlServer(local, x => x.MigrationsAssembly("Reec.Inspection.SqlServer")),
+            //   ServiceLifetime.Transient, ServiceLifetime.Transient);
 
         }
 
@@ -44,15 +70,13 @@ namespace Reec.Api.Test
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
 
-           
+            app.UseReecExceptionMiddleware<DbContextSqlServer>();
 
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
 
-            app.UseReecExceptionMiddleware<DbContextSqlServer>(  );
-
+            //if (env.IsDevelopment())
+            //{
+            //    app.UseDeveloperExceptionPage();
+            //}
 
             app.UseRouting();
 

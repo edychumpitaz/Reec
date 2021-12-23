@@ -20,15 +20,25 @@ Algunos datos de guardado:
     <RepositoryUrl>https://github.com/edychumpitaz/Reec</RepositoryUrl>
     <RepositoryType>GitHub</RepositoryType>
     <PackageTags>Reec, Exception, Log, Audit, Auditoria, Error</PackageTags>
+    <AssemblyVersion>1.0.2.0</AssemblyVersion>
+    <FileVersion>1.0.2.0</FileVersion>
+    <Version>1.0.2</Version>
   </PropertyGroup>
 
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<OutputPath>C:\NugetLocal\Reec.Inspection</OutputPath>
+		<DocumentationFile>C:\NugetLocal\Reec.Inspection\Reec.Inspection.xml</DocumentationFile>
+	</PropertyGroup>
+	
   <ItemGroup>
     <Compile Remove="BeLogBase.cs" />
+    <Compile Remove="ReecInspection.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.22" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.22" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.22">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
