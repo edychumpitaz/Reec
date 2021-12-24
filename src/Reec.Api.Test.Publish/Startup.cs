@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Reec.Api.Test
+namespace Reec.Api.Test.Publish
 {
     public class Startup
     {
@@ -27,7 +27,6 @@ namespace Reec.Api.Test
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
 
             var local = "Data Source=.;Initial Catalog=prueba;Integrated Security=True";
@@ -37,35 +36,6 @@ namespace Reec.Api.Test
             services.AddReecException<DbContextSqlServer>(options =>
                             options.UseSqlServer(local));
 
-
-
-            //Ejemplo de migracion con ruta de namespace(MigrationsAssembly)
-            //services.AddReecException<DbContextSqlServer>(options =>
-            //          options.UseSqlServer(local, x => x.MigrationsAssembly("Reec.Inspection.SqlServer")));
-
-
-            //Mas formas de personalizar
-            //services.AddReecException<DbContextSqlServer>(options =>
-            //          options.UseSqlServer(local, x => x.MigrationsAssembly("Reec.Inspection.SqlServer")),
-            //          new ReecExceptionOptions
-            //          {
-            //              HeaderKeysExclude = new List<string> { "Postman-Token", "User-Agent" }
-            //          });
-
-
-
-
-            //services.AddDbContext<DbContextSqlServer>(options =>
-            //    options.UseSqlServer(local),
-            //    ServiceLifetime.Transient, ServiceLifetime.Transient);
-
-            //services.AddDbContext<DbContextSqlServer>(options =>
-            //    options.UseSqlServer(local, x => x.MigrationsAssembly(typeof(Startup).Assembly.FullName)),
-            //    ServiceLifetime.Transient, ServiceLifetime.Transient);
-            //services.AddDbContext<DbContextSqlServer>(options =>
-            //   options.UseSqlServer(local, x => x.MigrationsAssembly("Reec.Inspection.SqlServer")),
-            //   ServiceLifetime.Transient, ServiceLifetime.Transient);
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -73,7 +43,6 @@ namespace Reec.Api.Test
         {
 
             app.UseReecExceptionMiddleware<DbContextSqlServer>();
-
 
             //if (env.IsDevelopment())
             //{

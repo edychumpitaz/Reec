@@ -10,7 +10,7 @@
     <PackageProjectUrl>https://github.com/edychumpitaz/Reec</PackageProjectUrl>
     <RepositoryType>GitHub</RepositoryType>
     <PackageTags>SqlServer, reec, Exception, Log, Audit, Auditoria, Error</PackageTags>
-    <Description>Guardado automático de log de errores en dase de datos para SqlServer, te permite crear un Id de identificación del error para que pueda ser inpecticado como un ticket de atención.
+    <Description>Guardado automático de log de errores en dase de datos para SqlServer, te permite crear un Id de identificación del error para que pueda ser inspeccionado como un ticket de atención.
 Algunos datos de guardado:
 
 *Path
