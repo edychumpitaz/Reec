@@ -34,7 +34,11 @@ namespace Reec.Api.Test.Publish
 
 
             services.AddReecException<DbContextSqlServer>(options =>
-                            options.UseSqlServer(local));
+                            options.UseSqlServer(local), new ReecExceptionOptions
+                            {
+                                ApplicationName = "ActiveBreak",
+                                HeaderKeysExclude = new List<string> { "Postman-Token", "User-Agent" }
+                            });
 
         }
 

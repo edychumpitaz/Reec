@@ -72,7 +72,7 @@ namespace Reec.Api.Test
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
 
-            app.UseReecExceptionMiddleware<DbContextSqlServer>();
+            app.UseReecException<DbContextSqlServer>();
 
 
             //if (env.IsDevelopment())

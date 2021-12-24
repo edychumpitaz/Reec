@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Reec.Inspection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using static Reec.Inspection.ReecEnums;
 
 namespace Reec.Api.Test.Publish.Controllers
 {
@@ -26,10 +28,22 @@ namespace Reec.Api.Test.Publish.Controllers
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
-            var numerador = 1;
-            var denominador = 0;
-            var resultado = numerador / denominador;
 
+
+            try
+            {
+                var numerador = 1;
+                var denominador = 0;
+                var resultado = numerador / denominador;
+            }
+            catch (Exception ex)
+            {
+                throw new ReecException(Category.BusinessLogicLegacy, $"El sistema de EMOA produjo un error no controlado",  "Sistema EMOA", ex);
+            }
+
+          
+
+            
 
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast

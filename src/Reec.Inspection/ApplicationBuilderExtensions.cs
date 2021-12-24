@@ -10,7 +10,13 @@ namespace Reec.Inspection
     public static class ApplicationBuilderExtensions
     {
 
-        public static IApplicationBuilder UseReecExceptionMiddleware<TDbContext>(this IApplicationBuilder applicationBuilder) where TDbContext : InspectionDbContext
+        /// <summary>
+        /// Middleware encargado de interceptar el HttpRequest y de capturar los errores generados para guardar en base de datos.
+        /// </summary>
+        /// <typeparam name="TDbContext"></typeparam>
+        /// <param name="applicationBuilder"></param>
+        /// <returns></returns>
+        public static IApplicationBuilder UseReecException<TDbContext>(this IApplicationBuilder applicationBuilder) where TDbContext : InspectionDbContext
         {
             
             using var scope = applicationBuilder.ApplicationServices.CreateScope();
