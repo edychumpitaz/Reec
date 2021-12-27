@@ -28,8 +28,8 @@ namespace Reec.Api.Test.Publish
         public void ConfigureServices(IServiceCollection services)
         {
 
-            //services.AddReecException<DbContextSqlServer>(options =>
-            //               options.UseSqlServer("cadena de conexión"));
+            services.AddReecException<DbContextSqlServer>(options =>
+                           options.UseSqlServer("cadena de conexión"));
 
             // var local = "Data Source=.;Initial Catalog=prueba;Integrated Security=True";
             var local = @"Data Source=ASUS\SQL2019;Initial Catalog=prueba;Integrated Security=True";
