@@ -159,9 +159,9 @@ public IActionResult TestBusinessLogicLegacy(string parameter)
         var division = numerador / denominador;
         return Ok(parameter);
     }
-    catch (Exception)
+    catch (Exception ex)
     {
-        throw new ReecException(Category.BusinessLogicLegacy, "Error no controlado del sistema legacy 'app1'.");
+        throw new ReecException(Category.BusinessLogicLegacy, "Error no controlado del sistema legacy 'app1'.", ex.Message);
     }
 }
 ```
