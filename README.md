@@ -1,7 +1,8 @@
 # Reec
 Paquetes para realizar conversiones de tipos de datos génericos, obtener tipo de ContentType apartir de un nombre de archivo. 
 Alto rendimiento en conexión a base de datos de manera nativa y de fácil uso en SqlServer, Oracle, MySql.
-Se agregaran mas conexiones de base de datos próximamente.
+Paquete de inspección de errores automáticos en WebApi para SqlServer, permite generar un Id de seguimiento.
+Se agregaran más conexiones de base de datos próximamente.
 
 ## Comenzando 🚀
 
@@ -14,9 +15,10 @@ Install-Package Reec.Helpers
 Install-Package Reec.MySql
 Install-Package Reec.Oracle
 Install-Package Reec.SqlServer
+Install-Package Reec.Inspection.SqlServer
 ```
 
-### Uso del paquete Helpers 🔧
+### Uso del paquete Reec.Helpers 🔧
 ```csharp
 using Reec.Helpers;
 .
@@ -46,7 +48,7 @@ var contentTypeXlsx = HelperContentType.GetContentType("test1.xlsx");
 ```
 
 
-### Uso del paquete SqlServer 🔧
+### Uso del paquete Reec.SqlServer 🔧
 
 ```csharp
 using Reec.SqlServer;
@@ -97,3 +99,69 @@ t.Commit();
 ```
 
 
+### Uso del paquete Reec.Inspection.SqlServer 🔧
+_Configuración del Startup._
+```csharp
+using Reec.Inspection.SqlServer;
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddReecException<DbContextSqlServer>(options =>
+                 options.UseSqlServer("cadena de conexión"));
+
+}
+
+ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+{
+    ///Debe ser el 1er middleware agregado para inspeccionar los log.
+    app.UseReecException<DbContextSqlServer>();
+}
+```
+
+_Formas de uso de error controlado._
+```csharp
+using static Reec.Inspection.ReecEnums; /// obtener enums de categorias de mensajes
+.
+.
+[HttpGet]
+public IActionResult TestWarning(string parameter)
+{
+    // Error controlado de validación de datos
+    if (string.IsNullOrWhiteSpace(parameter))
+        throw new ReecException(Category.Warning, "Campo 'parameter' obligatorio.");
+
+    return Ok(parameter);
+}
+
+[HttpGet]
+public IActionResult TestInternalServerError(string parameter)
+{
+    var numerador = 1;
+    var denominador = 0;    
+    // Error no controlado del sistema. produce un error 500 del servidor.
+    // El error que retorna a la api: {"Id":3,"Path":"/weatherforecast/TestInternalServerError/1","TraceIdentifier":"8000001b-0002-ff00-b63f-84710c7967bb","Category":500,"CategoryDescription":"InternalServerError","Message":["Error no controlado del sistema."]}
+    var division = numerador / denominador;
+    return Ok(parameter);
+}
+
+public IActionResult TestBusinessLogic(string parameter)
+{
+    if (string.IsNullOrWhiteSpace(parameter))
+        throw new ReecException(Category.BusinessLogic, "No cumple con la regla de negocio.");
+    return Ok(parameter);
+}
+
+public IActionResult TestBusinessLogicLegacy(string parameter)
+{
+    try 
+    {
+        var numerador = 1;
+        var denominador = 0;
+        var division = numerador / denominador;
+        return Ok(parameter);
+    }
+    catch (Exception)
+    {
+        throw new ReecException(Category.BusinessLogicLegacy, "Error no controlado del sistema legacy 'app1'.");
+    }
+}
+```
