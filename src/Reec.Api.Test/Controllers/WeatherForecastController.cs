@@ -36,15 +36,16 @@ namespace Reec.Api.Test.Controllers
 
             //}
 
+            throw new ReecException(Inspection.ReecEnums.Category.BusinessLogic, new List<string> { "prueba 1", "prueba 2"});
 
             //List<string> mensajes = new List<string> { "Regla de negocio", "valicación de campos" };
             //throw new ReecException(Inspection.ReecEnums.Category.Warning, mensajes);
 
 
 
-            var numerador = 1;
-            var denominador = 0;
-            var division = numerador / denominador;
+            //var numerador = 1;
+            //var denominador = 0;
+            //var division = numerador / denominador;
 
 
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast

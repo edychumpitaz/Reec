@@ -21,7 +21,13 @@ namespace Reec.Inspection
             
             using var scope = applicationBuilder.ApplicationServices.CreateScope();
             var context = scope.ServiceProvider.GetRequiredService<TDbContext>();
-            var isExists = context.Database.EnsureCreated();
+            //var isExists = context.Database.EnsureCreated();
+
+            //if (!isExists)
+            //{
+            //    context.Database.Migrate();
+            //}
+
             context.Database.Migrate();
 
             applicationBuilder.UseMiddleware<ReecExceptionMiddleware<TDbContext>>();

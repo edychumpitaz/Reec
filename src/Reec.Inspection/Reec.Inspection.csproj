@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Description>Guardado automático de log de errores en dase de datos, te permite crear un Id de identificación del error para que pueda ser inpecticado como un ticket de atención. 
+    <Description>Guardado automático de log de errores en dase de datos, te permite crear un Id de identificación del error para que pueda ser inspeccionado como un ticket de atención. 
 Algunos datos de guardado:
 
 *Path
@@ -20,9 +20,9 @@ Algunos datos de guardado:
     <RepositoryUrl>https://github.com/edychumpitaz/Reec</RepositoryUrl>
     <RepositoryType>GitHub</RepositoryType>
     <PackageTags>Reec, Exception, Log, Audit, Auditoria, Error</PackageTags>
-    <AssemblyVersion>1.0.2.0</AssemblyVersion>
-    <FileVersion>1.0.2.0</FileVersion>
-    <Version>1.0.2</Version>
+    <AssemblyVersion>1.0.3.0</AssemblyVersion>
+    <FileVersion>1.0.3.0</FileVersion>
+    <Version>1.0.3</Version>
   </PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
