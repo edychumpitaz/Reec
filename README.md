@@ -102,6 +102,7 @@ t.Commit();
 ### Uso del paquete Reec.Inspection.SqlServer 🔧
 _Configuración del Startup._
 ```csharp
+using Reec.Inspection;
 using Reec.Inspection.SqlServer;
 public void ConfigureServices(IServiceCollection services)
 {
