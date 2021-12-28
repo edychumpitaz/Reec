@@ -31,6 +31,12 @@ namespace Reec.Inspection
 
         public string TableName { get; set; } = "LogHttp";
 
+        /// <summary>
+        /// Habilita la migración automática a la Base de Datos.
+        /// Opción por defecto true.
+        /// </summary>
+        public bool EnableMigrations { get; set; } = true;
+
     }
 
 }

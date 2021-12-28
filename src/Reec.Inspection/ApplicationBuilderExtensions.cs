@@ -18,11 +18,14 @@ namespace Reec.Inspection
         /// <returns></returns>
         public static IApplicationBuilder UseReecException<TDbContext>(this IApplicationBuilder applicationBuilder) where TDbContext : InspectionDbContext
         {
-            
+
             using var scope = applicationBuilder.ApplicationServices.CreateScope();
             var context = scope.ServiceProvider.GetRequiredService<TDbContext>();
+            var options = scope.ServiceProvider.GetRequiredService<ReecExceptionOptions>();
             var isExists = context.Database.EnsureCreated();
-            context.Database.Migrate();
+
+            if (options.EnableMigrations)
+                context.Database.Migrate();
 
             applicationBuilder.UseMiddleware<ReecExceptionMiddleware<TDbContext>>();
 
