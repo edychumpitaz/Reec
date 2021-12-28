@@ -28,8 +28,8 @@ namespace Reec.Api.Test.Nuget.Controllers
         {
 
 
-            List<string> mensajes = new List<string> { "Regla de negocio", "valicación de campos", "desde nuget local"};
-            throw new Reec.Inspection.ReecException(Inspection.ReecEnums.Category.Warning, mensajes);
+            //List<string> mensajes = new List<string> { "Regla de negocio", "valicación de campos", "desde nuget local"};
+            //throw new Reec.Inspection.ReecException(Inspection.ReecEnums.Category.Warning, mensajes);
 
 
             //throw new Reec.Inspection.ReecException(Inspection.ReecEnums.Category.BusinessLogic, "Regla de negocio");

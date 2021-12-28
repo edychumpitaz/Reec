@@ -30,14 +30,15 @@ namespace Reec.Api.Test
 
             services.AddControllers();
 
-            //var local = "Data Source=.;Initial Catalog=prueba;Integrated Security=True";
-            var local = @"Data Source=ASUS\SQL2019;Initial Catalog=prueba;Integrated Security=True";
+            var local = "Data Source=.;Initial Catalog=prueba;Integrated Security=True";
+            //var local = @"Data Source=ASUS\SQL2019;Initial Catalog=prueba;Integrated Security=True";
             var dev = "data source=172.17.135.17;initial catalog=Dev_ActiveBreak;user id=DEV_ACTIVEBREAK_DBO;password=7Q2WOZJv!#REUdc";
 
-            
+
 
             services.AddReecException<DbContextSqlServer>(options =>
-                            options.UseSqlServer(local));
+                            options.UseSqlServer(local, 
+                            x => x.MigrationsAssembly(typeof(DbContextSqlServer).Assembly.FullName)));
 
 
 

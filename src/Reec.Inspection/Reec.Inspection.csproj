@@ -3,7 +3,12 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Description>Guardado automático de log de errores en dase de datos, te permite crear un Id de identificación del error para que pueda ser inspeccionado como un ticket de atención. 
+    <Description>Guardado automático de log de errores en base de datos, te permite crear un Id de identificación del error para que pueda ser inspeccionado como un ticket de atención. 
+
+Notas:Version 1.0.4
+Se agrego flag "EnableMigrations" de migración.
+EF Core 3.1 
+
 Algunos datos de guardado:
 
 *Path
@@ -12,17 +17,19 @@ Algunos datos de guardado:
 *TraceIdentifier
 *ExceptionMessage
 *InnerExceptionMessage
-*StackTrace
-</Description>
+*StackTrace</Description>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/edychumpitaz/Reec</PackageProjectUrl>
     <Authors>Edy Erwin Chumpitaz Ramos</Authors>
     <RepositoryUrl>https://github.com/edychumpitaz/Reec</RepositoryUrl>
     <RepositoryType>GitHub</RepositoryType>
     <PackageTags>Reec, Exception, Log, Audit, Auditoria, Error</PackageTags>
-    <AssemblyVersion>1.0.3.0</AssemblyVersion>
-    <FileVersion>1.0.3.0</FileVersion>
-    <Version>1.0.3</Version>
+    <AssemblyVersion>1.0.4.0</AssemblyVersion>
+    <FileVersion>1.0.4.0</FileVersion>
+    <Version>1.0.4</Version>
+    <PackageReleaseNotes>Notas: Versión 1.0.4
+Se agrego flag "EnableMigrations" de migración.
+EF Core 3.1</PackageReleaseNotes>
   </PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

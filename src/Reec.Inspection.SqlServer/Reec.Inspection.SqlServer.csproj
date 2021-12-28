@@ -9,8 +9,13 @@
     <RepositoryUrl>https://github.com/edychumpitaz/Reec</RepositoryUrl>
     <PackageProjectUrl>https://github.com/edychumpitaz/Reec</PackageProjectUrl>
     <RepositoryType>GitHub</RepositoryType>
-    <PackageTags>SqlServer, reec, Exception, Log, Audit, Auditoria, Error</PackageTags>
-    <Description>Guardado automático de log de errores en dase de datos para SqlServer, te permite crear un Id de identificación del error para que pueda ser inspeccionado como un ticket de atención.
+    <PackageTags>SqlServer, Reec, Exception, Log, Audit, Auditoria, Error</PackageTags>
+    <Description>Guardado automático de log de errores en base de datos para SqlServer, te permite crear un Id de identificación del error para que pueda ser inspeccionado como un ticket de atención.
+
+Notas:Version 1.0.4
+Se agrego flag "EnableMigrations" de migración.
+EF Core 3.1 
+
 Algunos datos de guardado:
 
 *Path
@@ -21,9 +26,12 @@ Algunos datos de guardado:
 *InnerExceptionMessage
 *StackTrace
 </Description>
-    <AssemblyVersion>1.0.3.0</AssemblyVersion>
-    <FileVersion>1.0.3.0</FileVersion>
-    <Version>1.0.3</Version>
+    <AssemblyVersion>1.0.4.0</AssemblyVersion>
+    <FileVersion>1.0.4.0</FileVersion>
+    <Version>1.0.4</Version>
+    <PackageReleaseNotes>Notas: Versión 1.0.4
+Se agrego flag "EnableMigrations" de migración.
+EF Core 3.1</PackageReleaseNotes>
   </PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
