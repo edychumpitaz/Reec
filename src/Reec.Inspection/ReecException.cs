@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using static Reec.Inspection.ReecEnums;
 
@@ -34,7 +35,7 @@ namespace Reec.Inspection
         public ReecException(Category category, List<string> messageUser)
             : base(string.Join("|", messageUser))
         {
-            this.ReecMessage = new ReecMessage(category, messageUser);
+            this.ReecMessage = new ReecMessage(category, messageUser.ToList());
         }
 
         /// <summary>

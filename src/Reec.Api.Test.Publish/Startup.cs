@@ -27,9 +27,12 @@ namespace Reec.Api.Test.Publish
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
 
-            var local = "Data Source=.;Initial Catalog=prueba;Integrated Security=True";
+            services.AddReecException<DbContextSqlServer>(options =>
+                           options.UseSqlServer("cadena de conexión"));
+
+            // var local = "Data Source=.;Initial Catalog=prueba;Integrated Security=True";
+            var local = @"Data Source=ASUS\SQL2019;Initial Catalog=prueba;Integrated Security=True";
             var dev = "data source=172.17.135.17;initial catalog=Dev_ActiveBreak;user id=DEV_ACTIVEBREAK_DBO;password=7Q2WOZJv!#REUdc";
 
 
@@ -46,17 +49,10 @@ namespace Reec.Api.Test.Publish
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
 
-            app.UseReecExceptionMiddleware<DbContextSqlServer>();
-
-            //if (env.IsDevelopment())
-            //{
-            //    app.UseDeveloperExceptionPage();
-            //}
+            app.UseReecException<DbContextSqlServer>();
 
             app.UseRouting();
-
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
