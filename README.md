@@ -50,6 +50,8 @@ var contentTypeXlsx = HelperContentType.GetContentType("test1.xlsx");
 
 ### Uso del paquete Reec.SqlServer 🔧
 
+Más ejemplo [aquí](./src/Reec.ConsoleTest/Program.cs)
+
 ```csharp
 using Reec.SqlServer;
 .
