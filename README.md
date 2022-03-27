@@ -40,7 +40,7 @@ var dataTable = HelperConvert.ListEntityToDataTable(listEntity);
 var dataTable1 = HelperConvert.ListEntityToDataTable(listEntity, "propiedad1", "propiedad2", "propiedad3");
 
 
-//El valor de contentType = "application/pdf"
+//El valor de contentTypePdf = "application/pdf"
 var contentTypePdf = HelperContentType.GetContentType("test.pdf");
 
 //El valor de contentTypeXlsx = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
@@ -82,20 +82,35 @@ var listEntity = reecSqlServer.ExecuteToListEntity<TEntity>("Name_StoreProcedure
 
 
 
+
 ///Uso de transacciones, se recomienda usar using al declarar la variable.
-using var t = reecSqlServer.BeginTransaccion();
+using var transaction = reecSqlServer.BeginTransaccion();
+
+//ejemplo de parametro de salida.
+var count = new SqlParameter("@count", System.Data.SqlDbType.Int) { 
+        Direction = System.Data.ParameterDirection.Output };
+var vResult = reecSqlServer.ExecuteNonQuery("USP_Curso_Update",
+                    new SqlParameter("@IdCurso", 1),
+                    new SqlParameter("@Nombre", "asp.net core MVC"),
+                    new SqlParameter("@Activo", true),
+                    count);
+
+var cursosT = reecSqlServer.QueryToListEntity<Curso>("select * from [dbo].[Curso]");
 /*
   código insert ..
   código delete ..
   código update ..
   código select ..
 */
+
 if(condicion)//alguna regla de negocio para ejecutar el Rollback, si ocurre una excepción, el rollback se ejecuta en automático.
 {
-  t.Rollback();
+  transaction.Rollback();
 }
 
-t.Commit();
+
+transaction.Commit();
+
 ```
 
 
