@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Data;
-using System.Data.Common;
+﻿using System.Data.Common;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -13,7 +11,7 @@ namespace Reec.DataBase
     /// <typeparam name="TCommand">Tipo de dato heredado de DbCommand</typeparam>
     /// <typeparam name="TParameter">Tipo de dato heredado de DbParameter</typeparam>
     /// <typeparam name="TTransaction">Tipo de dato heredado de DbTransaction</typeparam>
-    public partial interface IDbBase<TConnection, TCommand, TParameter, TTransaction>                              
+    public partial interface IDbBase<TConnection, TCommand, TParameter, TTransaction>
                                 where TConnection : DbConnection
                                 where TCommand : DbCommand
                                 where TParameter : DbParameter
@@ -92,17 +90,16 @@ namespace Reec.DataBase
         Task<DbDataReader> ExecuteReaderAsync(string storeProcedure, params TParameter[] parameters);
 
 
+
         /// <summary>
-        /// Ejecuta un query de sql y retorna un DataReader. 
-        /// Puede utilizar las extensiones como QueryReader(query).ToEntity<TObject>()
+        /// Ejecuta un script de sql y retorna un DataReader.
         /// </summary>
         /// <param name="query">Ejemplo: $"select * from [Tabla] where columna = '{variable1}'</param>
         /// <returns></returns>
         DbDataReader QueryReader(string query);
 
         /// <summary>
-        /// Ejecuta un query de sql y retorna un DataReader. 
-        /// Puede utilizar las extensiones como QueryReaderAsync(quey).ToEntity<TObject>()
+        /// Ejecuta un script de sql y retorna un DataReader. 
         /// </summary>
         /// <param name="query">Ejemplo: $"select * from [Tabla] where columna = '{variable1}'</param>
         /// <param name="cancellationToken">Token de cancelación de ejecución</param>
@@ -124,6 +121,6 @@ namespace Reec.DataBase
         /// <returns></returns>
         Task<int> QueryRowsAffectedAsync(string query, CancellationToken cancellationToken = default);
 
-     
+
     }
 }

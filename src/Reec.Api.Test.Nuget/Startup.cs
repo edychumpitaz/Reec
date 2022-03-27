@@ -1,20 +1,13 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Reec.Api.Test.Nuget.DbLegacyTest;
 using Reec.Inspection;
 using Reec.Inspection.SqlServer;
 //using Reec.Inspection;
 //using Reec.Inspection.SqlServer;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Reec.Api.Test.Nuget
 {
@@ -32,23 +25,21 @@ namespace Reec.Api.Test.Nuget
         {
             services.AddControllers();
 
-            var local = "Data Source=.;Initial Catalog=prueba;Integrated Security=True";
-            var dev = "data source=172.17.135.17;initial catalog=Dev_ActiveBreak;user id=DEV_ACTIVEBREAK_DBO;password=7Q2WOZJv!#REUdc";
+            var reec = @"Data Source=.\SQL2019;Initial Catalog=prueba;Integrated Security=True";
+            var dev = @"Data Source=.\SQL2019;Initial Catalog=pruebaDEV;Integrated Security=True";
+
+
 
 
             services.AddDbContext<TestDbContext>(options =>
-                            options.UseSqlServer(local));
-
-
+                            options.UseSqlServer(dev));
 
             services.AddReecException<DbContextSqlServer>(options =>
-                            options.UseSqlServer(local),
-                            new ReecExceptionOptions
-                            {
-                                EnableMigrations = false,
-                                Schema = "dbo_log",
-                                TableName = "LogHttp"
-                            });
+                          options.UseSqlServer(reec), new ReecExceptionOptions
+                          {
+                              EnableMigrations = false
+                          });
+
 
 
 

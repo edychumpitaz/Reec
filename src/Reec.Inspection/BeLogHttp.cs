@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Net;
-using System.Text;
 using static Reec.Inspection.ReecEnums;
 
 namespace Reec.Inspection
@@ -43,17 +41,22 @@ namespace Reec.Inspection
         /// </summary>
         public string InnerExceptionMessage { get; set; }
 
-
         /// <summary>
-        /// Ruta del aplicativo: api/controller/action
+        /// Protocolo de conexión.
         /// </summary>
-        public string Path { get; set; }
+        public string Protocol { get; set; }
+
+        public bool IsHttps { get; set; }
 
         /// <summary>
         /// Metodo de solicitud HTTP: GET, POST, PUT, DELETE, PATCH, ETC
         /// </summary>
         public string Method { get; set; }
 
+        /// <summary>
+        /// Esquema de solicitud HTTP.
+        /// </summary>
+        public string Scheme { get; set; }
 
         /// <summary>
         /// Nombre del servidor.
@@ -61,7 +64,7 @@ namespace Reec.Inspection
         public string Host { get; set; }
 
         /// <summary>
-        /// Puerto del servidor donde se alojael aplicativo.
+        /// Puerto del servidor donde se aloja el aplicativo.
         /// </summary>
         public int Port { get; set; }
 
@@ -70,6 +73,11 @@ namespace Reec.Inspection
         /// <para>Ejemplo: localhost:53174</para>
         /// </summary>
         public string HostPort { get; set; }
+
+        /// <summary>
+        /// Ruta del aplicativo: api/controller/action
+        /// </summary>
+        public string Path { get; set; }
 
         /// <summary>
         /// Origen de la excepción.

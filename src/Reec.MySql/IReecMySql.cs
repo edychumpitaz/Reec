@@ -4,9 +4,9 @@ using Reec.DataBase;
 
 namespace Reec.MySql
 {
-    public interface IReecMySql: IDbBase<MySqlConnection, MySqlCommand, MySqlParameter, MySqlTransaction>
+    public interface IReecMySql : IDbBase<MySqlConnection, MySqlCommand, MySqlParameter, MySqlTransaction>
     {
-    
+
     }
 
 }

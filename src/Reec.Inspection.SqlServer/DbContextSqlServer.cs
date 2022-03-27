@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Diagnostics.CodeAnalysis;
-using System.Threading.Tasks;
 
 namespace Reec.Inspection.SqlServer
 {
@@ -8,19 +7,20 @@ namespace Reec.Inspection.SqlServer
     {
         private readonly ReecExceptionOptions _reecExceptionOptions;
 
-        public DbContextSqlServer([NotNull] DbContextOptions options, ReecExceptionOptions reecExceptionOptions) : base(options)
-        {
-            //ChangeTracker.LazyLoadingEnabled = false;
-            //ChangeTracker.AutoDetectChangesEnabled = true; 
-            this._reecExceptionOptions = reecExceptionOptions;
-        }
-
-        public DbContextSqlServer(ReecExceptionOptions reecExceptionOptions)
+        public DbContextSqlServer([NotNull] DbContextOptions<DbContextSqlServer> options,
+            ReecExceptionOptions reecExceptionOptions) : base(options)
         {
             ChangeTracker.LazyLoadingEnabled = false;
             ChangeTracker.AutoDetectChangesEnabled = true;
             this._reecExceptionOptions = reecExceptionOptions;
         }
+
+        //public DbContextSqlServer(ReecExceptionOptions reecExceptionOptions)
+        //{
+        //    ChangeTracker.LazyLoadingEnabled = false;
+        //    ChangeTracker.AutoDetectChangesEnabled = true;
+        //    this._reecExceptionOptions = reecExceptionOptions;
+        //}
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -30,16 +30,20 @@ namespace Reec.Inspection.SqlServer
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<BeLogHttp>(entity =>
             {
-                
-                if (string.IsNullOrWhiteSpace(_reecExceptionOptions.Schema))
-                    entity.ToTable(_reecExceptionOptions.TableName);
-                else                
-                    entity.ToTable(_reecExceptionOptions.TableName, _reecExceptionOptions.Schema);
-                               
+
+                if (_reecExceptionOptions == null)
+                    entity.ToTable("LogHttp");
+                else
+                {
+                    if (_reecExceptionOptions != null && string.IsNullOrWhiteSpace(_reecExceptionOptions.Schema))
+                        entity.ToTable(_reecExceptionOptions.TableName);
+                    else
+                        entity.ToTable(_reecExceptionOptions.TableName, _reecExceptionOptions.Schema);
+                }
+
                 entity.HasKey(e => e.IdLogHttp);
                 entity.Property(e => e.IdLogHttp).ValueGeneratedOnAdd();
                 entity.Property(e => e.ApplicationName).HasColumnType("varchar(100)");
@@ -47,15 +51,17 @@ namespace Reec.Inspection.SqlServer
                 entity.Property(e => e.MessageUser).HasColumnType("varchar(max)");
                 entity.Property(e => e.ExceptionMessage).HasColumnType("varchar(max)");
                 entity.Property(e => e.InnerExceptionMessage).HasColumnType("varchar(max)");
-                entity.Property(e => e.Path).HasColumnType("varchar(max)");
+                entity.Property(e => e.Protocol).HasColumnType("varchar(50)");
                 entity.Property(e => e.Method).HasMaxLength(100).HasColumnType("varchar(100)");
+                entity.Property(e => e.Scheme).HasMaxLength(30).HasColumnType("varchar(30)");
                 entity.Property(e => e.Host).HasMaxLength(150).HasColumnType("varchar(150)");
                 entity.Property(e => e.HostPort).HasMaxLength(200).HasColumnType("varchar(200)");
+                entity.Property(e => e.Path).HasColumnType("varchar(max)");
                 entity.Property(e => e.Source).HasMaxLength(200).HasColumnType("varchar(200)");
                 entity.Property(e => e.TraceIdentifier).HasMaxLength(100).HasColumnType("varchar(100)");
+                entity.Property(e => e.ContentType).HasMaxLength(100).HasColumnType("varchar(100)");
                 entity.Property(e => e.RequestHeader).HasColumnType("text");
                 entity.Property(e => e.RequestBody).HasColumnType("text");
-                entity.Property(e => e.ContentType).HasMaxLength(100).HasColumnType("varchar(100)");
                 entity.Property(e => e.StackTrace).HasColumnType("text");
                 entity.Property(e => e.IpAddress).HasMaxLength(30).HasColumnType("varchar(30)");
                 entity.Property(e => e.CreateUser).HasMaxLength(40).IsUnicode(false);
@@ -66,7 +72,7 @@ namespace Reec.Inspection.SqlServer
 
             });
 
-
+            base.OnModelCreating(modelBuilder);
 
         }
 

@@ -8,9 +8,11 @@
     <RepositoryType>GitHub</RepositoryType>
     <PackageProjectUrl>https://github.com/edychumpitaz/Reec</PackageProjectUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageTags>Oracle, ADO.NET, reec</PackageTags>
+    <PackageTags>Oracle, ADO.NET, reec, netcore, net, core</PackageTags>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <Version>1.0.3</Version>
+	<AssemblyVersion>1.0.4.0</AssemblyVersion>
+	<FileVersion>1.0.4.0</FileVersion>
+	<Version>1.0.4</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -19,7 +21,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="3.21.1" />
+    <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="3.21.50" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,9 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Reec.Inspection
 {
@@ -22,7 +19,7 @@ namespace Reec.Inspection
             using var scope = applicationBuilder.ApplicationServices.CreateScope();
             var context = scope.ServiceProvider.GetRequiredService<TDbContext>();
             var options = scope.ServiceProvider.GetRequiredService<ReecExceptionOptions>();
-            var isExists = context.Database.EnsureCreated();
+            //var isExists = context.Database.EnsureCreated();
 
             if (options.EnableMigrations)
                 context.Database.Migrate();

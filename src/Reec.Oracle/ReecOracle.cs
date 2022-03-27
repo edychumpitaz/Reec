@@ -1,10 +1,7 @@
 ﻿using Oracle.ManagedDataAccess.Client;
 using Reec.DataBase;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Reec.Oracle 
+namespace Reec.Oracle
 {
     public class ReecOracle : DbBase<OracleConnection, OracleCommand, OracleParameter, OracleTransaction>, IReecOracle
     {
@@ -13,10 +10,10 @@ namespace Reec.Oracle
         /// </summary>
         /// <param name="connection">Cadena de conexión de Base de Datos.</param>
         /// <param name="commandTimeOut">Tiempo expresado en segundos, por defecto 30 segundos.</param>
-        public ReecOracle(string connection, int commandTimeOut = 30) 
+        public ReecOracle(string connection, int commandTimeOut = 30)
             : base(connection, commandTimeOut)
         {
-        
+
         }
 
         /// <summary>
@@ -27,7 +24,7 @@ namespace Reec.Oracle
         public ReecOracle(OracleTransaction transaction, int commandTimeOut = 30)
             : base(transaction, commandTimeOut)
         {
-        
+
         }
 
     }

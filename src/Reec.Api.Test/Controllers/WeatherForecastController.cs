@@ -4,7 +4,6 @@ using Reec.Inspection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using static Reec.Inspection.ReecEnums;
 
 namespace Reec.Api.Test.Controllers
@@ -25,7 +24,7 @@ namespace Reec.Api.Test.Controllers
             _logger = logger;
         }
 
-        [HttpGet]
+        [HttpGet()]
         public IEnumerable<WeatherForecast> Get()
         {
             var rng = new Random();
@@ -64,7 +63,7 @@ namespace Reec.Api.Test.Controllers
         /// </summary>
         /// <param name="parameter"></param>
         /// <returns></returns>
-        [HttpGet]
+        [HttpGet("TestWarning")]
         public IActionResult TestWarning(string parameter)
         {
             // Error controlado de validación de datos
@@ -73,7 +72,7 @@ namespace Reec.Api.Test.Controllers
 
             return Ok(parameter);
         }
-          
+
         [HttpGet("TestInternalServerError/{parameter}")]
         public IActionResult TestInternalServerError(string parameter)
         {
@@ -83,7 +82,7 @@ namespace Reec.Api.Test.Controllers
             return Ok(parameter);
         }
 
-
+        [HttpGet("TestBusinessLogic")]
         public IActionResult TestBusinessLogic(string parameter)
         {
             if (string.IsNullOrWhiteSpace(parameter))
@@ -91,10 +90,10 @@ namespace Reec.Api.Test.Controllers
             return Ok(parameter);
         }
 
-         
+        [HttpGet("TestBusinessLogicLegacy")]
         public IActionResult TestBusinessLogicLegacy(string parameter)
         {
-            try 
+            try
             {
                 var numerador = 1;
                 var denominador = 0;

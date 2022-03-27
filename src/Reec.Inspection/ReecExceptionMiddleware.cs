@@ -1,15 +1,11 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Text;
 using System.Threading.Tasks;
 using static Reec.Inspection.ReecEnums;
 
@@ -203,7 +199,11 @@ namespace Reec.Inspection
                 CreateDate = DateTime.Now,
                 TraceIdentifier = httpContext.TraceIdentifier,
                 IpAddress = httpContext.Connection.RemoteIpAddress.ToString(),
-                ContentType = httpContext.Request.ContentType
+                ContentType = httpContext.Request.ContentType,
+                Protocol = httpContext.Request.Protocol,
+                Scheme = httpContext.Request.Scheme,
+                IsHttps = httpContext.Request.IsHttps,
+
             };
 
             if (httpContext.User.Identity.IsAuthenticated)

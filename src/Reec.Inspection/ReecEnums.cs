@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Reec.Inspection
+﻿namespace Reec.Inspection
 {
     public class ReecEnums
     {
@@ -26,13 +22,13 @@ namespace Reec.Inspection
             PartialContent = 206,
 
             /// <summary>
-            /// Validación de Business Logic: Se requiere autenticación. El HttpStatus se marca como 401.
+            /// Validación de Permisos: Se requiere autenticación. El HttpStatus se marca como 401.
             /// <para>Ejemplo: Se utiliza cuando se requiere logear el usuario.</para>
             /// </summary>
             Unauthorized = 401,
 
             /// <summary>
-            /// Validación de Business Logic: Se requiere autorización para acceder al recurso. El HttpStatus se marca como 403.
+            /// Validación de Permisos: Se requiere autorización para acceder a un recurso. El HttpStatus se marca como 403.
             /// <para>Ejemplo: Se utiliza cuando el usuario logeado no cumple con los permisos o roles necesarios.</para>
             /// </summary>
             Forbidden = 403,
@@ -53,7 +49,7 @@ namespace Reec.Inspection
 
             /// <summary>
             /// Validación de Business Logic: El HttpStatus se marca como 400.
-            /// <para>Ejemplo: Se utiliza cuando existe ERRORES CONTROLADOS de un SISTEMA EXISTENTE(Base de Datos, Servicio Api, etc).</para>
+            /// <para>Ejemplo: Se utiliza cuando exíste ERRORES CONTROLADOS de un SISTEMA EXISTENTE(Base de Datos, Servicio Api, etc).</para>
             /// </summary>
             BusinessLogicLegacy = 470,
 
@@ -61,19 +57,19 @@ namespace Reec.Inspection
 
             /// <summary>
             /// Error interno del servidor: El HttpStatus se marca como 500.
-            /// <para>Ejemplo: Se utiliza cuando exíste ERRORES NO CONTROLADOS por el sistema</para>
+            /// <para>Ejemplo: Se utiliza cuando exíste ERRORES NO CONTROLADOS por el sistema.</para>
             /// </summary>
             InternalServerError = 500,
 
             /// <summary>
             /// Mensaje de Error de un sistema existente. El HttpStatus se marca como 502.
-            /// <para>Ejemplo: Se utiliza cuando exíste ERRORES NO CONTROLADOS de un SISTEMA EXISTENTE. Validación de Business Logic</para>
+            /// <para>Ejemplo: Se utiliza cuando exíste ERRORES NO CONTROLADOS de un SISTEMA EXISTENTE.</para>
             /// </summary>
             BadGateway = 502,
 
             /// <summary>
             /// Tiempo de espera agotado. El HttpStatus se marca como 504.
-            /// <para>Ejemplo: Se utiliza cuando se conecta a un SISTEMA EXISTENTE y supera el TIEMPO DE ESPERA.</para>
+            /// <para>Ejemplo: Se utiliza cuando se conecta a un SISTEMA EXISTENTE(api, wcf, soap) y supera el TIEMPO DE ESPERA.</para>
             /// </summary>
             GatewayTimeout = 504
 

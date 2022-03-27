@@ -32,7 +32,7 @@ namespace Reec.Helpers
                 if (dataReader != null && !dataReader.IsClosed && dataReader.HasRows)
                 {
                     list = new List<TEntity>();
-                    var properties = typeof(TEntity).GetProperties();                 
+                    var properties = typeof(TEntity).GetProperties();
 
 
                     var columnNames = dataReader.GetColumnSchema().Select(x => x.ColumnName);
@@ -66,7 +66,7 @@ namespace Reec.Helpers
 
                     dataReader.NextResult();
                 }
-               
+
                 if (dataReader != null && !dataReader.IsClosed && !dataReader.HasRows)
                     dataReader.Close();
 
@@ -133,8 +133,8 @@ namespace Reec.Helpers
                     dataReader.NextResult();
                 }
 
-               
-                if (dataReader != null && !dataReader.IsClosed &&  !dataReader.HasRows)
+
+                if (dataReader != null && !dataReader.IsClosed && !dataReader.HasRows)
                     dataReader.Close();
 
                 return entity;
@@ -149,7 +149,7 @@ namespace Reec.Helpers
         }
 
         /// <summary>
-        /// 
+        /// Convierte un DataReader genérico a DataTable. Si el DataReader no contiene elementos, la función retornará null.
         /// </summary>
         /// <param name="dataReader"></param>
         /// <returns></returns>
@@ -169,13 +169,13 @@ namespace Reec.Helpers
         }
 
         /// <summary>
-        /// Convierte un dataReader genérico a DataTable
+        /// Convierte un DataReader genérico a DataTable. Si el DataReader no contiene elementos, la función retornará null.
         /// </summary>
         /// <param name="dataReader"></param>
         /// <returns></returns>
         public static DataTable DataReaderToDataTable(IDataReader dataReader)
         {
-            DataTable dt = null;            
+            DataTable dt = null;
             if (dataReader != null && !dataReader.IsClosed)
             {
                 dt = new DataTable();
@@ -187,7 +187,7 @@ namespace Reec.Helpers
         }
 
         /// <summary>
-        /// 
+        /// Convierte un DataReader a un DataSet. Si el DataReader no contiene elementos, la función retornará null.
         /// </summary>
         /// <param name="dataReader"></param>
         /// <returns></returns>
@@ -195,7 +195,7 @@ namespace Reec.Helpers
         {
             DataSet dts = null;
             var count = 0;
-            while (dataReader !=null && !dataReader.IsClosed && dataReader.HasRows)
+            while (dataReader != null && !dataReader.IsClosed && dataReader.HasRows)
             {
                 count++;
                 if (dts == null) dts = new DataSet();
@@ -210,13 +210,17 @@ namespace Reec.Helpers
 
 
         /// <summary>
-        /// Convierte un DataTable en un objeto genérico.
+        /// Convierte un DataTable en un objeto genérico. Si el DataTable no contiene elementos, la función retornará null.
         /// </summary>
         /// <typeparam name="TEntity"></typeparam>
         /// <param name="dataTable"></param>
         /// <returns></returns>
         public static TEntity DataTableToEntity<TEntity>(DataTable dataTable) where TEntity : class
         {
+
+            if (dataTable == null || dataTable.Rows.Count == 0)
+                return null;
+
             string PropertyName = null;
             try
             {
@@ -240,7 +244,7 @@ namespace Reec.Helpers
                     }
                     count++;
                 }
-
+                properties = null;
                 PropertyName = null;
                 if (count != 1)
                     obj = default;
@@ -256,13 +260,16 @@ namespace Reec.Helpers
         }
 
         /// <summary>
-        /// Convierte un DataTable en una lista genérica.
+        /// Convierte un DataTable en una lista genérica. Si el DataTable no contiene elementos, la función retornará null.
         /// </summary>
         /// <typeparam name="TEntity"></typeparam>
         /// <param name="dataTable"></param>
         /// <returns></returns>
         public static List<TEntity> DataTableToList<TEntity>(DataTable dataTable) where TEntity : class
         {
+
+            if (dataTable == null || dataTable.Rows.Count == 0)
+                return null;
 
             string PropertyName = null;
             try
@@ -287,6 +294,7 @@ namespace Reec.Helpers
                     list.Add(obj);
                 }
 
+                properties = null;
                 PropertyName = null;
                 if (list.Count == 0)
                     list = null;
@@ -302,7 +310,8 @@ namespace Reec.Helpers
         }
 
         /// <summary>
-        /// Convierte un DataTable en una cadena de string con saltos de línea.
+        /// Convierte un DataTable en una cadena de string con saltos de línea. 
+        /// Si el DataTable no contiene elementos, la función retornará null.
         /// </summary>
         /// <param name="dataTable"></param>
         /// <param name="titulo"></param>
@@ -310,6 +319,9 @@ namespace Reec.Helpers
         /// <returns></returns>
         public static string DataTableToString(DataTable dataTable, string titulo, string delimitador)
         {
+            if (dataTable == null || dataTable.Rows.Count == 0)
+                return null;
+
             StringBuilder sb = new StringBuilder();
             if (!string.IsNullOrWhiteSpace(titulo))
                 sb.AppendLine(titulo);
@@ -325,15 +337,24 @@ namespace Reec.Helpers
             return sb.ToString();
         }
 
+        /// <summary>
+        /// Convierte un string representado en XML a un Entity. Si el parametro es vacio la función retornará null.
+        /// </summary>
+        /// <typeparam name="TEntity">Tipo de objeto a convertir</typeparam>
+        /// <param name="stringXml"></param>
+        /// <returns></returns>
         public static TEntity StringXmlToEntity<TEntity>(string stringXml) where TEntity : class
         {
+            if (!string.IsNullOrWhiteSpace(stringXml))
+                return null;
+
             XmlSerializer ser = new XmlSerializer(typeof(TEntity));
             using StringReader sr = new StringReader(stringXml);
             return (TEntity)ser.Deserialize(sr);
         }
 
         /// <summary>
-        /// Convierte un string representado en XML a un DataSet
+        /// Convierte un string representado en XML a un DataSet. Si el parametro es vacio la función retornará null.
         /// </summary>
         /// <param name="stringXml"></param>
         /// <returns></returns>
@@ -345,6 +366,12 @@ namespace Reec.Helpers
             return ds;
         }
 
+        /// <summary>
+        /// Convierte un objeto a un string expresado en JSON.
+        /// </summary>
+        /// <typeparam name="TEntity"></typeparam>
+        /// <param name="entity"></param>
+        /// <returns></returns>
         public static string ObjectToJson<TEntity>(TEntity entity) where TEntity : class
         {
             var settings = new JsonSerializerSettings
@@ -359,6 +386,12 @@ namespace Reec.Helpers
 
         }
 
+        /// <summary>
+        /// Convierte un string expresado en JSON a Objeto.
+        /// </summary>
+        /// <typeparam name="TObject"></typeparam>
+        /// <param name="jsonString"></param>
+        /// <returns></returns>
         public static TObject JsonToObject<TObject>(string jsonString) where TObject : class
         {
             var settings = new JsonSerializerSettings
@@ -407,7 +440,7 @@ namespace Reec.Helpers
                         row[prop.Name] = prop.GetValue(item) ?? DBNull.Value;
                     table.Rows.Add(row);
                 }
-
+                properties.Clear();
             }
 
             return table;

@@ -1,9 +1,9 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
+using System;
 
 namespace Reec.Inspection.SqlServer.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -20,11 +20,14 @@ namespace Reec.Inspection.SqlServer.Migrations
                     MessageUser = table.Column<string>(type: "varchar(max)", nullable: true),
                     ExceptionMessage = table.Column<string>(type: "varchar(max)", nullable: true),
                     InnerExceptionMessage = table.Column<string>(type: "varchar(max)", nullable: true),
-                    Path = table.Column<string>(type: "varchar(max)", nullable: true),
+                    Protocol = table.Column<string>(type: "varchar(50)", nullable: true),
+                    IsHttps = table.Column<bool>(nullable: false),
                     Method = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: true),
+                    Scheme = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: true),
                     Host = table.Column<string>(type: "varchar(150)", maxLength: 150, nullable: true),
                     Port = table.Column<int>(nullable: false),
                     HostPort = table.Column<string>(type: "varchar(200)", maxLength: 200, nullable: true),
+                    Path = table.Column<string>(type: "varchar(max)", nullable: true),
                     Source = table.Column<string>(type: "varchar(200)", maxLength: 200, nullable: true),
                     TraceIdentifier = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: true),
                     ContentType = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: true),

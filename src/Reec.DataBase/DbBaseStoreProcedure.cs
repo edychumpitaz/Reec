@@ -1,98 +1,84 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Reec.DataBase 
+namespace Reec.DataBase
 {
-    public partial class DbBase<TConnection, TCommand, TParameter, TTransaction> : 
-                                IDbBase<TConnection, TCommand, TParameter, TTransaction>                                
+    public partial class DbBase<TConnection, TCommand, TParameter, TTransaction> :
+                                IDbBase<TConnection, TCommand, TParameter, TTransaction>
     {
 
 
-        
+
         public virtual async Task<DataTable> ExecuteToDataTableAsync(string storeProcedure, CancellationToken cancellationToken = default, params TParameter[] parameters)
         {
-            var dt = (await this.ExecuteReaderAsync(storeProcedure, cancellationToken, parameters)).ToDataTable();
-            return dt;
+            return (await this.ExecuteReaderAsync(storeProcedure, cancellationToken, parameters)).ToDataTable();
         }
-        
+
         public virtual async Task<DataTable> ExecuteToDataTableAsync(string storeProcedure, params TParameter[] parameters)
         {
-            var dt = (await this.ExecuteReaderAsync(storeProcedure, parameters)).ToDataTable();
-            return dt;
+            return (await this.ExecuteReaderAsync(storeProcedure, parameters)).ToDataTable();
         }
-        
+
         public virtual DataTable ExecuteToDataTable(string storeProcedure, params TParameter[] parameters)
         {
-            var dt = this.ExecuteReader(storeProcedure, parameters).ToDataTable();
-            return dt;
+            return this.ExecuteReader(storeProcedure, parameters).ToDataTable();
         }
 
 
 
-        
+
         public virtual async Task<DataSet> ExecuteToDataSetAsync(string storeProcedure, CancellationToken cancellationToken = default, params TParameter[] parameters)
         {
-            var dts = (await this.ExecuteReaderAsync(storeProcedure, cancellationToken, parameters)).ToDataSet();
-            return dts;
+            return (await this.ExecuteReaderAsync(storeProcedure, cancellationToken, parameters)).ToDataSet();
         }
-        
+
         public virtual async Task<DataSet> ExecuteToDataSetAsync(string storeProcedure, params TParameter[] parameters)
         {
-            var dts = (await this.ExecuteReaderAsync(storeProcedure, parameters)).ToDataSet();
-            return dts;
+            return (await this.ExecuteReaderAsync(storeProcedure, parameters)).ToDataSet();
         }
-        
+
         public virtual DataSet ExecuteToDataSet(string storeProcedure, params TParameter[] parameters)
         {
-            var dts = this.ExecuteReader(storeProcedure, parameters).ToDataSet();
-            return dts;
+            return this.ExecuteReader(storeProcedure, parameters).ToDataSet();
         }
 
 
 
-        
+
         public virtual async Task<TEntity> ExecuteToEntityAsync<TEntity>(string storeProcedure, CancellationToken cancellationToken = default, params TParameter[] parameters) where TEntity : class
         {
-            var entity = (await this.ExecuteReaderAsync(storeProcedure, cancellationToken, parameters)).ToEntity<TEntity>();
-            return entity;
-        }        
-        
+            return (await this.ExecuteReaderAsync(storeProcedure, cancellationToken, parameters)).ToEntity<TEntity>();
+        }
+
         public virtual async Task<TEntity> ExecuteToEntityAsync<TEntity>(string storeProcedure, params TParameter[] parameters) where TEntity : class
         {
-            var entity = (await this.ExecuteReaderAsync(storeProcedure, parameters)).ToEntity<TEntity>();
-            return entity;
-        }       
-        
+            return (await this.ExecuteReaderAsync(storeProcedure, parameters)).ToEntity<TEntity>();
+        }
+
         public virtual TEntity ExecuteToEntity<TEntity>(string storeProcedure, params TParameter[] parameters) where TEntity : class
         {
-            var entity = this.ExecuteReader(storeProcedure, parameters).ToEntity<TEntity>();
-            return entity;
+            return this.ExecuteReader(storeProcedure, parameters).ToEntity<TEntity>();
         }
 
 
 
-        
+
         public virtual async Task<List<TEntity>> ExecuteToListEntityAsync<TEntity>(string storeProcedure, CancellationToken cancellationToken = default, params TParameter[] parameters) where TEntity : class
         {
-            var vResult = (await this.ExecuteReaderAsync(storeProcedure, cancellationToken, parameters)).ToListEntity<TEntity>();
-            return vResult;
+            return (await this.ExecuteReaderAsync(storeProcedure, cancellationToken, parameters)).ToListEntity<TEntity>();
         }
-        
+
         public virtual async Task<List<TEntity>> ExecuteToListEntityAsync<TEntity>(string storeProcedure, params TParameter[] parameters) where TEntity : class
         {
-            var vResult = (await this.ExecuteReaderAsync(storeProcedure, parameters)).ToListEntity<TEntity>();
-            return vResult;
+            return (await this.ExecuteReaderAsync(storeProcedure, parameters)).ToListEntity<TEntity>();
         }
-        
+
         public virtual List<TEntity> ExecuteToListEntity<TEntity>(string storeProcedure, params TParameter[] parameters) where TEntity : class
         {
-            var vResult = this.ExecuteReader(storeProcedure, parameters).ToListEntity<TEntity>();
-            return vResult;
+            return this.ExecuteReader(storeProcedure, parameters).ToListEntity<TEntity>();
         }
 
 

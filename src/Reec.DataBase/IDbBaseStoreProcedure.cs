@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -52,7 +49,11 @@ namespace Reec.DataBase
         /// Si el StoreProcedure no retorna filas, la función retorna null.
         /// </summary>
         /// <param name="storeProcedure">Nombre de StoreProcedure</param>
-        /// <param name="parameters"></param>
+        /// <param name="parameters">
+        /// <para>Ejemplo: Enviar variable tipo tabla</para>
+        /// param.SqlDbType = SqlDbType.Structured;
+        /// param.TypeName = item.TypeName (Nombre de objeto de BD);
+        /// </param>
         /// <returns></returns>
         DataTable ExecuteToDataTable(string storeProcedure, params TParameter[] parameters);
 
@@ -62,7 +63,11 @@ namespace Reec.DataBase
         /// </summary>
         /// <param name="storeProcedure">Nombre de StoreProcedure</param>
         /// <param name="cancellationToken">Token de cancelación de ejecución</param>
-        /// <param name="parameters"></param>
+        /// <param name="parameters">
+        /// <para>Ejemplo: Enviar variable tipo tabla</para>
+        /// param.SqlDbType = SqlDbType.Structured;
+        /// param.TypeName = item.TypeName (Nombre de objeto de BD);
+        /// </param>
         /// <returns></returns>
         Task<DataTable> ExecuteToDataTableAsync(string storeProcedure, CancellationToken cancellationToken = default, params TParameter[] parameters);
 
@@ -71,7 +76,11 @@ namespace Reec.DataBase
         /// Si el StoreProcedure no retorna filas, la función retorna null.
         /// </summary>
         /// <param name="storeProcedure">Nombre de StoreProcedure</param>
-        /// <param name="parameters"></param>
+        /// <param name="parameters">
+        /// <para>Ejemplo: Enviar variable tipo tabla</para>
+        /// param.SqlDbType = SqlDbType.Structured;
+        /// param.TypeName = item.TypeName (Nombre de objeto de BD);
+        /// </param>
         /// <returns></returns>
         Task<DataTable> ExecuteToDataTableAsync(string storeProcedure, params TParameter[] parameters);
 
@@ -83,7 +92,11 @@ namespace Reec.DataBase
         /// </summary>
         /// <typeparam name="TEntity">Tipo de objeto de retorno.</typeparam>
         /// <param name="storeProcedure"></param>
-        /// <param name="parameters"></param>
+        /// <param name="parameters">
+        /// <para>Ejemplo: Enviar variable tipo tabla</para>
+        /// param.SqlDbType = SqlDbType.Structured;
+        /// param.TypeName = item.TypeName (Nombre de objeto de BD);
+        /// </param>
         /// <returns></returns>
         TEntity ExecuteToEntity<TEntity>(string storeProcedure, params TParameter[] parameters) where TEntity : class;
 
@@ -94,7 +107,11 @@ namespace Reec.DataBase
         /// <typeparam name="TEntity">Tipo de objeto de retorno.</typeparam>
         /// <param name="storeProcedure"></param>
         /// <param name="cancellationToken">Token de cancelación de ejecución</param>
-        /// <param name="parameters"></param>
+        /// <param name="parameters">
+        /// <para>Ejemplo: Enviar variable tipo tabla</para>
+        /// param.SqlDbType = SqlDbType.Structured;
+        /// param.TypeName = item.TypeName (Nombre de objeto de BD);
+        /// </param>
         /// <returns></returns>
         Task<TEntity> ExecuteToEntityAsync<TEntity>(string storeProcedure, CancellationToken cancellationToken = default, params TParameter[] parameters) where TEntity : class;
 
@@ -104,7 +121,11 @@ namespace Reec.DataBase
         /// </summary>
         /// <typeparam name="TEntity">Tipo de objeto de retorno.</typeparam>
         /// <param name="storeProcedure"></param>
-        /// <param name="parameters"></param>
+        /// <param name="parameters">
+        /// <para>Ejemplo: Enviar variable tipo tabla</para>
+        /// param.SqlDbType = SqlDbType.Structured;
+        /// param.TypeName = item.TypeName (Nombre de objeto de BD);
+        /// </param>
         /// <returns></returns>
         Task<TEntity> ExecuteToEntityAsync<TEntity>(string storeProcedure, params TParameter[] parameters) where TEntity : class;
 
@@ -116,7 +137,11 @@ namespace Reec.DataBase
         /// </summary>
         /// <typeparam name="TEntity">Tipo de entidad para rtornarlo como lista</typeparam>
         /// <param name="storeProcedure"></param>
-        /// <param name="parameters"></param>
+        /// <param name="parameters">
+        /// <para>Ejemplo: Enviar variable tipo tabla</para>
+        /// param.SqlDbType = SqlDbType.Structured;
+        /// param.TypeName = item.TypeName (Nombre de objeto de BD);
+        /// </param>
         /// <returns></returns>
         List<TEntity> ExecuteToListEntity<TEntity>(string storeProcedure, params TParameter[] parameters) where TEntity : class;
 
@@ -127,7 +152,11 @@ namespace Reec.DataBase
         /// <typeparam name="TEntity">Tipo de entidad para retornarlo como lista</typeparam>
         /// <param name="storeProcedure"></param>
         /// <param name="cancellationToken">Token de cancelación de ejecución</param>
-        /// <param name="parameters"></param>
+        /// <param name="parameters">
+        /// <para>Ejemplo: Enviar variable tipo tabla</para>
+        /// param.SqlDbType = SqlDbType.Structured;
+        /// param.TypeName = item.TypeName (Nombre de objeto de BD);
+        /// </param>
         /// <returns></returns>
         Task<List<TEntity>> ExecuteToListEntityAsync<TEntity>(string storeProcedure, CancellationToken cancellationToken = default, params TParameter[] parameters) where TEntity : class;
 
@@ -137,7 +166,11 @@ namespace Reec.DataBase
         /// </summary>
         /// <typeparam name="TEntity">Tipo de entidad para rtornarlo como lista</typeparam>
         /// <param name="storeProcedure"></param>
-        /// <param name="parameters"></param>
+        /// <param name="parameters">
+        /// <para>Ejemplo: Enviar variable tipo tabla</para>
+        /// param.SqlDbType = SqlDbType.Structured;
+        /// param.TypeName = item.TypeName (Nombre de objeto de BD);
+        /// </param>
         /// <returns></returns>
         Task<List<TEntity>> ExecuteToListEntityAsync<TEntity>(string storeProcedure, params TParameter[] parameters) where TEntity : class;
 

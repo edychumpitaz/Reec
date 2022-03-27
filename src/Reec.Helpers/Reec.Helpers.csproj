@@ -18,7 +18,7 @@ Obtener ContentType de archivos</Description>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/edychumpitaz/Reec</PackageProjectUrl>
     <PackageTags>helper, helpers, convert, conversion, translate</PackageTags>
-    <Version>1.0.3</Version>
+    <Version>1.0.4</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

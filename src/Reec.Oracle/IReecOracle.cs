@@ -2,11 +2,11 @@
 using Reec.DataBase;
 
 
-namespace Reec.Oracle 
+namespace Reec.Oracle
 {
-    public interface IReecOracle: IDbBase<OracleConnection, OracleCommand, OracleParameter, OracleTransaction>
+    public interface IReecOracle : IDbBase<OracleConnection, OracleCommand, OracleParameter, OracleTransaction>
     {
-    
+
     }
 
 }

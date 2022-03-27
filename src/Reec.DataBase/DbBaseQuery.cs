@@ -1,70 +1,59 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Reec.DataBase 
+namespace Reec.DataBase
 {
-    public partial class DbBase<TConnection, TCommand, TParameter, TTransaction> : 
+    public partial class DbBase<TConnection, TCommand, TParameter, TTransaction> :
                                 IDbBase<TConnection, TCommand, TParameter, TTransaction>
 
     {
- 
-        
+
+
         public DataTable QueryToDataTable(string query)
         {
-            var dt = this.QueryReader(query).ToDataTable();
-            return dt;
+            return this.QueryReader(query).ToDataTable();
         }
         public async Task<DataTable> QueryToDataTableAsync(string query, CancellationToken cancellationToken = default)
         {
-            var dt = (await this.QueryReaderAsync(query, cancellationToken)).ToDataTable();
-            return dt;
+            return (await this.QueryReaderAsync(query, cancellationToken)).ToDataTable();
         }
 
 
 
         public DataSet QueryToDataSet(string query)
         {
-            DataSet dts = this.QueryReader(query).ToDataSet();
-            return dts;
+            return this.QueryReader(query).ToDataSet();
         }
         public async Task<DataSet> QueryToDataSetAsync(string query, CancellationToken cancellationToken = default)
         {
-            DataSet dts = (await this.QueryReaderAsync(query, cancellationToken)).ToDataSet();
-            return dts;
+            return (await this.QueryReaderAsync(query, cancellationToken)).ToDataSet();
         }
 
 
 
         public TEntity QueryToEntity<TEntity>(string query) where TEntity : class
         {
-            var entity = this.QueryReader(query).ToEntity<TEntity>();
-            return entity;
+            return this.QueryReader(query).ToEntity<TEntity>();
         }
         public async Task<TEntity> QueryToEntityAsync<TEntity>(string query, CancellationToken cancellationToken = default) where TEntity : class
         {
-            var entity = (await this.QueryReaderAsync(query, cancellationToken)).ToEntity<TEntity>();
-            return entity;
+            return (await this.QueryReaderAsync(query, cancellationToken)).ToEntity<TEntity>();
         }
 
 
 
         public List<TEntity> QueryToListEntity<TEntity>(string query) where TEntity : class
         {
-            var listEntity = this.QueryReader(query).ToListEntity<TEntity>();
-            return listEntity;
+            return this.QueryReader(query).ToListEntity<TEntity>();
         }
         public async Task<List<TEntity>> QueryToListEntityAsync<TEntity>(string query, CancellationToken cancellationToken = default) where TEntity : class
         {
-
-            var listEntity = (await this.QueryReaderAsync(query, cancellationToken)).ToListEntity<TEntity>();
-            return listEntity;
+            return (await this.QueryReaderAsync(query, cancellationToken)).ToListEntity<TEntity>();
         }
-     
+
 
     }
 

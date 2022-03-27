@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net;
+﻿using System.Collections.Generic;
 using static Reec.Inspection.ReecEnums;
 
 namespace Reec.Inspection
@@ -27,7 +25,7 @@ namespace Reec.Inspection
         /// <summary>
         /// Código de error registrado en el sistema, si es cero es informativo.
         /// </summary>
-        public int Id { get; set; }       
+        public int Id { get; set; }
 
         /// <summary>
         /// Path url de consulta que originó el mensaje

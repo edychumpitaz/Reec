@@ -9,8 +9,10 @@
     <RepositoryType>GitHub</RepositoryType>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <PackageTags>MySql, ADO.NET, reec</PackageTags>
-    <Version>1.0.3</Version>
+    <PackageTags>MySql, ADO.NET, reec, netcore, net, core</PackageTags>
+	<AssemblyVersion>1.0.4.0</AssemblyVersion>
+	<FileVersion>1.0.4.0</FileVersion>	  
+    <Version>1.0.4</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -19,7 +21,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MySql.Data" Version="8.0.23" />
+    <PackageReference Include="MySql.Data" Version="8.0.28" />
   </ItemGroup>
 
   <ItemGroup>

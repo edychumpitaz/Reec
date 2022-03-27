@@ -1,9 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Reec.Api.Test.Nuget.DbLegacyTest
 {
@@ -14,7 +10,7 @@ namespace Reec.Api.Test.Nuget.DbLegacyTest
 
         public TestDbContext([NotNullAttribute] DbContextOptions options) : base(options)
         {
-             
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

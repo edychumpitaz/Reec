@@ -8,9 +8,11 @@
     <RepositoryUrl>https://github.com/edychumpitaz/Reec</RepositoryUrl>
     <RepositoryType>GitHub</RepositoryType>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.3</Version>
+	<AssemblyVersion>1.0.4.0</AssemblyVersion>
+	<FileVersion>1.0.4.0</FileVersion>
+	<Version>1.0.4</Version>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <PackageTags>SqlServer, ADO.NET, Sql, reec</PackageTags>
+    <PackageTags>SqlServer, ADO.NET, Sql, reec, netcore, net, core</PackageTags>
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
 
@@ -20,7 +22,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Data.SqlClient" Version="2.1.2" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="2.1.4" />
   </ItemGroup>
 
   <ItemGroup>

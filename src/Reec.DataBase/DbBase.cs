@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -72,7 +70,7 @@ namespace Reec.DataBase
             this.Transaction = transaction;
         }
 
-        
+
         public TTransaction BeginTransaccion()
         {
             if (this.Connection.State == ConnectionState.Closed)
@@ -80,7 +78,7 @@ namespace Reec.DataBase
             this.Transaction = (TTransaction)Connection.BeginTransaction();
             return this.Transaction;
         }
-        
+
         public void UseTransaccion(TTransaction transaction)
         {
             this.Transaction = transaction;
@@ -130,7 +128,6 @@ namespace Reec.DataBase
             if (this.Connection.State == ConnectionState.Closed)
                 this.Connection.Open();
 
-
             if (this.Transaction != null)
                 Command.Transaction = this.Transaction;
 
@@ -141,22 +138,17 @@ namespace Reec.DataBase
 
         #region Ejecución de SqlQuery
 
-        
+
         public async Task<DbDataReader> QueryReaderAsync(string query, CancellationToken cancellationToken = default)
         {
             using var Command = CommandQuery(query);
             if (this.Transaction != null)
             {
                 Command.Transaction = this.Transaction;
-                var reader = await Command.ExecuteReaderAsync(cancellationToken);
-                return reader;
-                //IAsyncResult result = Command.BeginExecuteReader();
-                //while (!result.IsCompleted) await Task.Delay(5);
-                //return Command.EndExecuteReader(result);
+                return await Command.ExecuteReaderAsync(cancellationToken); //no debe cerrar la conexion cuando hay transaccion
             }
             else
                 return await Command.ExecuteReaderAsync(CommandBehavior.CloseConnection, cancellationToken);
-
         }
 
         public DbDataReader QueryReader(string query)
@@ -165,11 +157,7 @@ namespace Reec.DataBase
             if (this.Transaction != null)
             {
                 Command.Transaction = this.Transaction;
-                var reader = Command.ExecuteReader();
-                return reader;
-                //IAsyncResult result = Command.BeginExecuteReader();
-                //while (!result.IsCompleted) Task.Delay(5).Wait();
-                //return Command.EndExecuteReader(result);
+                return Command.ExecuteReader(); //no debe cerrar la conexion cuando hay transaccion
             }
             else
                 return Command.ExecuteReader(CommandBehavior.CloseConnection);
@@ -180,19 +168,23 @@ namespace Reec.DataBase
         public async Task<int> QueryRowsAffectedAsync(string query, CancellationToken cancellationToken = default)
         {
             using var Command = CommandQuery(query);
-            var reader = await Command.ExecuteNonQueryAsync(cancellationToken);
-            if (this.Transaction == null) await this.Connection.CloseAsync();
+            var count = await Command.ExecuteNonQueryAsync(cancellationToken);
+            if (this.Transaction == null) 
+                await this.Connection.CloseAsync();
+
             if (cancellationToken.IsCancellationRequested)
-                if (this.Transaction != null) await this.Transaction.RollbackAsync();
-            return reader;
+                if (this.Transaction != null) 
+                    await this.Transaction.RollbackAsync();
+            return count;
         }
-  
+
         public int QueryRowsAffected(string query)
         {
             using var Command = CommandQuery(query);
-            var reader = Command.ExecuteNonQuery();
-            if (this.Transaction == null) this.Connection.Close();
-            return reader;
+            var count = Command.ExecuteNonQuery();
+            if (this.Transaction == null) 
+                this.Connection.Close();
+            return count;
         }
 
 
@@ -201,82 +193,74 @@ namespace Reec.DataBase
 
 
         #region Ejecución de StoredProcedure       
-        
+
         public async Task<DbDataReader> ExecuteReaderAsync(string storeProcedure, CancellationToken cancellationToken = default, params TParameter[] parameters)
         {
             using var Command = this.CommandProcedure(storeProcedure, parameters);
             if (this.Transaction != null)
             {
                 Command.Transaction = this.Transaction;
-                var reader = await Command.ExecuteReaderAsync(cancellationToken);
-                return reader;
-                //IAsyncResult result = Command.BeginExecuteReader();
-                //while (!result.IsCompleted) await Task.Delay(5);
-                //return Command.EndExecuteReader(result);
+                return await Command.ExecuteReaderAsync(cancellationToken);//no debe cerrar la conexion cuando hay transaccion
             }
             else
                 return await Command.ExecuteReaderAsync(CommandBehavior.CloseConnection, cancellationToken);
         }
-        
+
         public async Task<DbDataReader> ExecuteReaderAsync(string storeProcedure, params TParameter[] parameters)
         {
             using var Command = this.CommandProcedure(storeProcedure, parameters);
             if (this.Transaction != null)
             {
                 Command.Transaction = this.Transaction;
-                var reader = await Command.ExecuteReaderAsync();
-                return reader;
-                //IAsyncResult result = Command.BeginExecuteReader();
-                //while (!result.IsCompleted) await Task.Delay(5);
-                //return Command.EndExecuteReader(result);
+                return await Command.ExecuteReaderAsync();//no debe cerrar la conexion cuando hay transaccion
             }
             else
                 return await Command.ExecuteReaderAsync(CommandBehavior.CloseConnection);
         }
-        
+
         public DbDataReader ExecuteReader(string storeProcedure, params TParameter[] parameters)
         {
-
             using var Command = this.CommandProcedure(storeProcedure, parameters);
             if (this.Transaction != null)
             {
                 Command.Transaction = this.Transaction;
-                var reader = Command.ExecuteReaderAsync().Result;
-                return reader;
-                //IAsyncResult result = Command.BeginExecuteReader();
-                //while (!result.IsCompleted) Task.Delay(5).Wait();
-                //return Command.EndExecuteReader(result);
+                return Command.ExecuteReader();//no debe cerrar la conexion cuando hay transaccion
             }
             else
                 return Command.ExecuteReader(CommandBehavior.CloseConnection);
         }
 
 
-        
+
         public async Task<int> ExecuteNonQueryAsync(string storeProcedure, CancellationToken cancellationToken = default, params TParameter[] parameters)
         {
             using var sqlCommand = this.CommandProcedure(storeProcedure, parameters);
             var vResult = await sqlCommand.ExecuteNonQueryAsync(cancellationToken);
-            if (this.Transaction == null) await this.Connection.CloseAsync();
-            if (cancellationToken.IsCancellationRequested)            
-                if (this.Transaction != null) await this.Transaction.RollbackAsync();
-            
+            if (this.Transaction == null) 
+                await this.Connection.CloseAsync();
+
+            if (cancellationToken.IsCancellationRequested)
+                if (this.Transaction != null) 
+                    await this.Transaction.RollbackAsync();
+
             return vResult;
         }
-        
+
         public async Task<int> ExecuteNonQueryAsync(string storeProcedure, params TParameter[] parameters)
         {
             using var sqlCommand = this.CommandProcedure(storeProcedure, parameters);
             var vResult = await sqlCommand.ExecuteNonQueryAsync();
-            if (this.Transaction == null) await this.Connection.CloseAsync();
+            if (this.Transaction == null)
+                await this.Connection.CloseAsync();
             return vResult;
         }
-        
+
         public int ExecuteNonQuery(string storeProcedure, params TParameter[] parameters)
         {
             using var sqlCommand = this.CommandProcedure(storeProcedure, parameters);
             var vResult = sqlCommand.ExecuteNonQuery();
-            if (this.Transaction == null) this.Connection.Close();
+            if (this.Transaction == null)
+                this.Connection.Close();
             return vResult;
         }
 

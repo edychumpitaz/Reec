@@ -1,17 +1,10 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Reec.Inspection;
 using Reec.Inspection.SqlServer;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Reec.Api.Test
 {
@@ -30,15 +23,19 @@ namespace Reec.Api.Test
 
             services.AddControllers();
 
-            var local = "Data Source=.;Initial Catalog=prueba;Integrated Security=True";
-            //var local = @"Data Source=ASUS\SQL2019;Initial Catalog=prueba;Integrated Security=True";
-            var dev = "data source=172.17.135.17;initial catalog=Dev_ActiveBreak;user id=DEV_ACTIVEBREAK_DBO;password=7Q2WOZJv!#REUdc";
+            //var local = "Data Source=.;Initial Catalog=prueba;Integrated Security=True";
+            var local = @"Data Source=ASUS\SQL2019;Initial Catalog=prueba;Integrated Security=True";
+            //var dev = "data source=172.17.135.17;initial catalog=Dev_ActiveBreak;user id=DEV_ACTIVEBREAK_DBO;password=7Q2WOZJv!#REUdc";
 
 
 
             services.AddReecException<DbContextSqlServer>(options =>
-                            options.UseSqlServer(local, 
-                            x => x.MigrationsAssembly(typeof(DbContextSqlServer).Assembly.FullName)));
+                            options.UseSqlServer(local));
+
+
+            //services.AddReecException<DbContextSqlServer>(options =>
+            //options.UseSqlServer(local,
+            //x => x.MigrationsAssembly(typeof(DbContextSqlServer).Assembly.FullName)));
 
 
 

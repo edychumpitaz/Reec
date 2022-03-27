@@ -10,14 +10,14 @@ using Reec.Inspection.SqlServer;
 namespace Reec.Inspection.SqlServer.Migrations
 {
     [DbContext(typeof(DbContextSqlServer))]
-    [Migration("20211223080550_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20220326223557_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.22")
+                .HasAnnotation("ProductVersion", "3.1.23")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -71,6 +71,9 @@ namespace Reec.Inspection.SqlServer.Migrations
                         .HasColumnType("varchar(30)")
                         .HasMaxLength(30);
 
+                    b.Property<bool>("IsHttps")
+                        .HasColumnType("bit");
+
                     b.Property<string>("MessageUser")
                         .HasColumnType("varchar(max)");
 
@@ -84,11 +87,18 @@ namespace Reec.Inspection.SqlServer.Migrations
                     b.Property<int>("Port")
                         .HasColumnType("int");
 
+                    b.Property<string>("Protocol")
+                        .HasColumnType("varchar(50)");
+
                     b.Property<string>("RequestBody")
                         .HasColumnType("text");
 
                     b.Property<string>("RequestHeader")
                         .HasColumnType("text");
+
+                    b.Property<string>("Scheme")
+                        .HasColumnType("varchar(30)")
+                        .HasMaxLength(30);
 
                     b.Property<string>("Source")
                         .HasColumnType("varchar(200)")

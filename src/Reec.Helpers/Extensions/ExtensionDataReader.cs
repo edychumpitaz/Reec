@@ -1,28 +1,29 @@
 ﻿using Reec.Helpers;
-using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.Common;
-using System.IO;
-using System.Text;
-using System.Xml;
 
 
-namespace System.Data.Common 
+namespace System.Data.Common
 {
     public static class ExtensionDataReader
     {
-
+        /// <summary>
+        /// Convierte un DataReader a un DataTable.
+        /// </summary>
+        /// <param name="dataReader"></param>
+        /// <returns></returns>
         public static DataTable ToDataTable(this DbDataReader dataReader)
         {
-            DataTable dt = HelperConvert.DataReaderToDataTable(dataReader);
-            return dt;
+            return HelperConvert.DataReaderToDataTable(dataReader);
         }
 
+        /// <summary>
+        /// Convierte un DataReader en un DataSet.
+        /// </summary>
+        /// <param name="dataReader"></param>
+        /// <returns></returns>
         public static DataSet ToDataSet(this DbDataReader dataReader)
         {
-            DataSet dts = HelperConvert.DataReaderToDataSet(dataReader);
-            return dts;
+            return HelperConvert.DataReaderToDataSet(dataReader);
         }
 
         /// <summary>
@@ -33,8 +34,7 @@ namespace System.Data.Common
         /// <returns></returns>
         public static TEntity ToEntity<TEntity>(this DbDataReader dataReader) where TEntity : class
         {
-            var entity = HelperConvert.DataReaderToEntity<TEntity>(dataReader);
-            return entity;
+            return HelperConvert.DataReaderToEntity<TEntity>(dataReader);
         }
 
         /// <summary>
@@ -45,8 +45,7 @@ namespace System.Data.Common
         /// <returns></returns>
         public static List<TEntity> ToListEntity<TEntity>(this DbDataReader dataReader) where TEntity : class
         {
-            var list = HelperConvert.DataReaderToList<TEntity>(dataReader);
-            return list;
+            return HelperConvert.DataReaderToList<TEntity>(dataReader);
         }
 
     }
