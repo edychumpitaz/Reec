@@ -137,8 +137,12 @@ services.AddReecException<DbContextSqlServer>(options =>
 
 _Habilitar migración para Net5 y Net6_
 
-Ejecutar comando en la consola del administrador de paquetes
+Dependencia Nuget para aplicar migración
+```PowerShell
+Install-Package Microsoft.EntityFrameworkCore.Tools
+```
 
+Ejecutar comando en la consola del administrador de paquetes
 ```PowerShell
 Add-Migration Initial -Context DbContextSqlServer
 ```
