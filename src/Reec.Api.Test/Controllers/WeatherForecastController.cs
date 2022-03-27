@@ -24,7 +24,7 @@ namespace Reec.Api.Test.Controllers
             _logger = logger;
         }
 
-        [HttpGet()]
+        [HttpGet("Get")]
         public IEnumerable<WeatherForecast> Get()
         {
             var rng = new Random();
@@ -58,27 +58,14 @@ namespace Reec.Api.Test.Controllers
 
         }
 
-        /// <summary>
-        /// Error controlado de validación de datos
-        /// </summary>
-        /// <param name="parameter"></param>
-        /// <returns></returns>
+     
         [HttpGet("TestWarning")]
         public IActionResult TestWarning(string parameter)
         {
             // Error controlado de validación de datos
             if (string.IsNullOrWhiteSpace(parameter))
-                throw new ReecException(Category.InternalServerError, "Campo 'parameter' obligatorio.");
+                throw new ReecException(Category.Warning, $"Campo '{nameof(parameter)}' obligatorio.");
 
-            return Ok(parameter);
-        }
-
-        [HttpGet("TestInternalServerError/{parameter}")]
-        public IActionResult TestInternalServerError(string parameter)
-        {
-            var numerador = 1;
-            var denominador = 0;
-            var division = numerador / denominador;
             return Ok(parameter);
         }
 
@@ -105,6 +92,18 @@ namespace Reec.Api.Test.Controllers
                 throw new ReecException(Category.BusinessLogicLegacy, "Error no controlado del sistema legacy 'app1'.", ex.Message);
             }
         }
+
+
+        [HttpGet("TestInternalServerError/{parameter}")]
+        public IActionResult TestInternalServerError(string parameter)
+        {
+            var numerador = 1;
+            var denominador = 0;
+            var division = numerador / denominador;
+            return Ok(parameter);
+        }
+
+       
 
 
     }

@@ -25,7 +25,7 @@ namespace Reec.Api.Test.Nuget
         {
             services.AddControllers();
 
-            var reec = @"Data Source=.\SQL2019;Initial Catalog=prueba;Integrated Security=True";
+            var reec = @"Data Source=.\SQL2019;Initial Catalog=pruebaNet5;Integrated Security=True";
             var dev = @"Data Source=.\SQL2019;Initial Catalog=pruebaDEV;Integrated Security=True";
 
 
@@ -34,13 +34,14 @@ namespace Reec.Api.Test.Nuget
             services.AddDbContext<TestDbContext>(options =>
                             options.UseSqlServer(dev));
 
+            //services.AddReecException<DbContextSqlServer>(options =>
+            //              options.UseSqlServer(reec), new ReecExceptionOptions
+            //              {
+            //                  EnableMigrations = false
+            //              });
+
             services.AddReecException<DbContextSqlServer>(options =>
-                          options.UseSqlServer(reec), new ReecExceptionOptions
-                          {
-                              EnableMigrations = false
-                          });
-
-
+                         options.UseSqlServer(reec, x => x.MigrationsAssembly(typeof(Startup).Namespace)));
 
 
             //Ejemplo de migracion con ruta de namespace(MigrationsAssembly)
