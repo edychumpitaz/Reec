@@ -100,6 +100,13 @@ t.Commit();
 
 
 ### Uso del paquete Reec.Inspection.SqlServer 🔧
+
+- Las migraciónes estan habilitados en automático y tiene soporte para EF core 3.1
+- El [script](https://github.com/edychumpitaz/Reec/blob/master/scripts/LogHttp.sql) de contingencia para creación de tabla de LogHttp.
+- Documentación en [Excel](https://github.com/edychumpitaz/Reec/blob/master/documents/Documentacion%20de%20error.xlsx)
+- Para Net5 y Net6 se debe aplicar una nueva migración. ejemplo: "Add-Migration"
+
+
 _Configuración del Startup._
 ```csharp
 using Reec.Inspection;
@@ -117,6 +124,31 @@ public void ConfigureServices(IServiceCollection services)
     app.UseReecException<DbContextSqlServer>();
 }
 ```
+
+_Deshabilitar las migraciones._
+```csharp
+services.AddReecException<DbContextSqlServer>(options =>
+                          options.UseSqlServer("cadena de conexión"), new ReecExceptionOptions
+                          {
+                              EnableMigrations = false
+                          });
+```
+
+
+_Habilitar migración para Net5 y Net6_
+
+Ejecutar comando en la consola del administrador de paquetes
+
+```PowerShell
+Add-Migration Initial -Context DbContextSqlServer
+```
+![migracion](./documents/ConsolNuget.png)
+
+```csharp
+services.AddReecException<DbContextSqlServer>(options =>
+                         options.UseSqlServer("cadena de conexión", x => x.MigrationsAssembly(typeof(Startup).Namespace)));
+```
+
 
 _Formas de uso de error controlado._
 ```csharp
@@ -166,3 +198,27 @@ public IActionResult TestBusinessLogicLegacy(string parameter)
     }
 }
 ```
+
+
+
+Tipos de Response Reec.Inspection.SqlServer
+```csharp
+
+//Response Warning - HttpStatus 400
+{"Id":6,"Path":"/weatherforecast/TestWarning","TraceIdentifier":"80000007-0004-ff00-b63f-84710c7967bb","Category":460,"CategoryDescription":"Warning","Message":["Campo 'parameter' obligatorio."]}
+
+
+//Response BusinessLogic - HttpStatus 400
+{"Id":7,"Path":"/weatherforecast/TestBusinessLogic","TraceIdentifier":"80000008-0004-ff00-b63f-84710c7967bb","Category":465,"CategoryDescription":"BusinessLogic","Message":["No cumple con la regla de negocio."]}
+
+
+//Response BusinessLogicLegacy - HttpStatus 400
+{"Id":8,"Path":"/weatherforecast/TestBusinessLogicLegacy","TraceIdentifier":"80000009-0004-ff00-b63f-84710c7967bb","Category":470,"CategoryDescription":"BusinessLogicLegacy","Message":["Error no controlado del sistema legacy 'app1'."]}
+
+
+//Response InternalServerError - HttpStatus 500
+{"Id":9,"Path":"/weatherforecast/TestInternalServerError/1","TraceIdentifier":"8000000d-0004-ff00-b63f-84710c7967bb","Category":500,"CategoryDescription":"InternalServerError","Message":["Error no controlado del sistema."]}
+
+```
+
+
