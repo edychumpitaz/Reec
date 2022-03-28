@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using Reec.Helpers;
 using Reec.SqlServer;
 using System;
 using System.Diagnostics;
@@ -33,7 +34,7 @@ namespace Reec.ConsoleTest
             var dataTableAsync = await reecSqlServer.QueryToDataTableAsync(query);
 
             var dataReader = reecSqlServer.QueryReader(query);
-            var dt = Helpers.HelperConvert.DataReaderToDataTable(dataReader);
+            var dt = HelperConvert.DataReaderToDataTable(dataReader);
 
             var dataReaderAsync = await reecSqlServer.QueryReaderAsync(query);
             var dtAsync = Helpers.HelperConvert.DataReaderToDataTable(dataReaderAsync);
@@ -45,24 +46,27 @@ namespace Reec.ConsoleTest
 
             var spCursos = reecSqlServer.ExecuteToListEntity<Curso>(sp);
             var spCursosAsync = await reecSqlServer.ExecuteToListEntityAsync<Curso>(sp);
-             
+
             var spDataTable = reecSqlServer.ExecuteToDataTable(sp, new SqlParameter("@IdCurso", 1));
             var spDataTableAsync = await reecSqlServer.ExecuteToDataTableAsync(sp, new SqlParameter("@IdCurso", 1));
-             
+
             var spDataSet = reecSqlServer.ExecuteToDataSet(sp);
             var spDataSetAsync = await reecSqlServer.ExecuteToDataSetAsync(sp);
 
             var spDataReader = reecSqlServer.ExecuteReader(sp);
-            var spDt = Helpers.HelperConvert.DataReaderToDataTable(spDataReader); 
+
+            var spDt = HelperConvert.DataReaderToDataTable(spDataReader);
 
             var spDataReaderAsync = await reecSqlServer.ExecuteReaderAsync(sp);
-            var spDtAsync = Helpers.HelperConvert.DataReaderToDataTable(spDataReaderAsync);
+            var spDtAsync = HelperConvert.DataReaderToDataTable(spDataReaderAsync);
 
 
             using var transaction = reecSqlServer.BeginTransaccion();
-           
-            var count = new SqlParameter("@count", System.Data.SqlDbType.Int) { 
-                    Direction = System.Data.ParameterDirection.Output };
+
+            var count = new SqlParameter("@count", System.Data.SqlDbType.Int)
+            {
+                Direction = System.Data.ParameterDirection.Output
+            };
             var vResult = reecSqlServer.ExecuteNonQuery(update,
                                 new SqlParameter("@IdCurso", 1),
                                 new SqlParameter("@Nombre", "asp.net core MVC"),
@@ -70,7 +74,7 @@ namespace Reec.ConsoleTest
                                 count);
 
             var cursosT = reecSqlServer.QueryToListEntity<Curso>(query);
-             
+
             transaction.Commit();
 
 

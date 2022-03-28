@@ -407,13 +407,13 @@ namespace Reec.Helpers
         }
 
         /// <summary>
-        /// Convierte una lista genérica en un DataTable
+        /// Convierte una lista genérica en un DataTable, si la lista no contiene elementos, la función retornará null.
         /// </summary>
         /// <typeparam name="TEntity"></typeparam>
         /// <param name="listEntity"></param>
         /// <param name="members">Nombres de las propiedades que se van a exportar.</param>
         /// <returns></returns>
-        public static DataTable ListEntityToDataTable<TEntity>(IList<TEntity> listEntity, params string[] members)
+        public static DataTable ListEntityToDataTable<TEntity>(IList<TEntity> listEntity, params string[] members) where TEntity : class
         {
 
             if (listEntity == null || listEntity.Count == 0)
@@ -453,7 +453,7 @@ namespace Reec.Helpers
         /// <param name="listEntity"></param>
         /// <param name="members">Nombres de las propiedades que se van a exportar.</param>
         /// <returns></returns>
-        public static DbDataReader ListEntityToDataReader<TEntity>(List<TEntity> listEntity, params string[] members)
+        public static DbDataReader ListEntityToDataReader<TEntity>(IList<TEntity> listEntity, params string[] members) where TEntity : class
         {
             var reader = ObjectReader.Create(listEntity, members);
             return reader;

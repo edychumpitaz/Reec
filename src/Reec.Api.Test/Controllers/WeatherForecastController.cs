@@ -36,7 +36,7 @@ namespace Reec.Api.Test.Controllers
 
             //}
 
-            throw new ReecException(Inspection.ReecEnums.Category.BusinessLogic, new List<string> { "prueba 1", "prueba 2" });
+            throw new ReecException(Inspection.ReecEnums.Category.PartialContent, new List<string> { "La consulta no contiene registros." });
 
             //List<string> mensajes = new List<string> { "Regla de negocio", "valicación de campos" };
             //throw new ReecException(Inspection.ReecEnums.Category.Warning, mensajes);
@@ -58,7 +58,7 @@ namespace Reec.Api.Test.Controllers
 
         }
 
-     
+
         [HttpGet("TestWarning")]
         public IActionResult TestWarning(string parameter)
         {
@@ -103,7 +103,7 @@ namespace Reec.Api.Test.Controllers
             return Ok(parameter);
         }
 
-       
+
 
 
     }

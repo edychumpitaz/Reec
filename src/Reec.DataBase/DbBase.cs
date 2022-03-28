@@ -169,11 +169,11 @@ namespace Reec.DataBase
         {
             using var Command = CommandQuery(query);
             var count = await Command.ExecuteNonQueryAsync(cancellationToken);
-            if (this.Transaction == null) 
+            if (this.Transaction == null)
                 await this.Connection.CloseAsync();
 
             if (cancellationToken.IsCancellationRequested)
-                if (this.Transaction != null) 
+                if (this.Transaction != null)
                     await this.Transaction.RollbackAsync();
             return count;
         }
@@ -182,7 +182,7 @@ namespace Reec.DataBase
         {
             using var Command = CommandQuery(query);
             var count = Command.ExecuteNonQuery();
-            if (this.Transaction == null) 
+            if (this.Transaction == null)
                 this.Connection.Close();
             return count;
         }
@@ -236,11 +236,11 @@ namespace Reec.DataBase
         {
             using var sqlCommand = this.CommandProcedure(storeProcedure, parameters);
             var vResult = await sqlCommand.ExecuteNonQueryAsync(cancellationToken);
-            if (this.Transaction == null) 
+            if (this.Transaction == null)
                 await this.Connection.CloseAsync();
 
             if (cancellationToken.IsCancellationRequested)
-                if (this.Transaction != null) 
+                if (this.Transaction != null)
                     await this.Transaction.RollbackAsync();
 
             return vResult;

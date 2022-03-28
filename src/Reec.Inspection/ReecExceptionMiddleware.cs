@@ -88,7 +88,6 @@ namespace Reec.Inspection
                         case Category.BusinessLogic:
                         case Category.BusinessLogicLegacy:
                             httpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest; break;
-                        //httpContext.Response.StatusCode = (int)HttpStatusCode.NotFound; break;
 
                         case Category.InternalServerError:
                             httpContext.Response.StatusCode = (int)HttpStatusCode.InternalServerError; break;

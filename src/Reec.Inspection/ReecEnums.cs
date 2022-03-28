@@ -62,7 +62,7 @@
             InternalServerError = 500,
 
             /// <summary>
-            /// Mensaje de Error de un sistema existente. El HttpStatus se marca como 502.
+            /// Mensaje de Error de un sistema existente(api, wcf, soap). El HttpStatus se marca como 502.
             /// <para>Ejemplo: Se utiliza cuando exíste ERRORES NO CONTROLADOS de un SISTEMA EXISTENTE.</para>
             /// </summary>
             BadGateway = 502,
