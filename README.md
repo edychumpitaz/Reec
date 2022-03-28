@@ -105,7 +105,10 @@ var cursosT = reecSqlServer.QueryToListEntity<Curso>("select * from [dbo].[Curso
   código select ..
 */
 
-if(condicion)//alguna regla de negocio para ejecutar el Rollback, si ocurre una excepción, el rollback se ejecuta en automático.
+
+//alguna regla de negocio para ejecutar el Rollback, 
+//si ocurre una excepción el rollback se ejecuta en automático.
+if(condicion)
 {
   transaction.Rollback();
 }
@@ -167,7 +170,7 @@ Add-Migration Initial -Context DbContextSqlServer
 
 ```csharp
 services.AddReecException<DbContextSqlServer>(options =>
-                         options.UseSqlServer("cadena de conexión", x => x.MigrationsAssembly(typeof(Startup).Namespace)));
+         options.UseSqlServer("cadena de conexión", x => x.MigrationsAssembly(typeof(Startup).Namespace)));
 ```
 
 
@@ -191,8 +194,6 @@ public IActionResult TestInternalServerError(string parameter)
 {
     var numerador = 1;
     var denominador = 0;    
-    // Error no controlado del sistema. produce un error 500 del servidor.
-    // El error que retorna a la api: {"Id":3,"Path":"/weatherforecast/TestInternalServerError/1","TraceIdentifier":"8000001b-0002-ff00-b63f-84710c7967bb","Category":500,"CategoryDescription":"InternalServerError","Message":["Error no controlado del sistema."]}
     var division = numerador / denominador;
     return Ok(parameter);
 }
@@ -225,6 +226,18 @@ public IActionResult TestBusinessLogicLegacy(string parameter)
 Tipos de Response Reec.Inspection.SqlServer
 ```csharp
 
+//Response PartialContent - HttpStatus 206
+{"Id":0,"Path":"/weatherforecast/get","TraceIdentifier":"8000000f-000b-fd00-b63f-84710c7967bb","Category":206,"CategoryDescription":"PartialContent","Message":["La consulta no contiene registros."]}
+
+
+//Response Unauthorized - HttpStatus 401
+{"Id":10,"Path":"/weatherforecast/get","TraceIdentifier":"80000008-000b-fd00-b63f-84710c7967bb","Category":401,"CategoryDescription":"Unauthorized","Message":["El usuario no esta autenticado."]}
+
+
+//Response Forbidden - HttpStatus 403
+{"Id":11,"Path":"/weatherforecast/get","TraceIdentifier":"8000000c-000b-fd00-b63f-84710c7967bb","Category":403,"CategoryDescription":"Forbidden","Message":["El usuario no tiene permisos para acceder al recurso."]}
+
+
 //Response Warning - HttpStatus 400
 {"Id":6,"Path":"/weatherforecast/TestWarning","TraceIdentifier":"80000007-0004-ff00-b63f-84710c7967bb","Category":460,"CategoryDescription":"Warning","Message":["Campo 'parameter' obligatorio."]}
 
@@ -239,6 +252,14 @@ Tipos de Response Reec.Inspection.SqlServer
 
 //Response InternalServerError - HttpStatus 500
 {"Id":9,"Path":"/weatherforecast/TestInternalServerError/1","TraceIdentifier":"8000000d-0004-ff00-b63f-84710c7967bb","Category":500,"CategoryDescription":"InternalServerError","Message":["Error no controlado del sistema."]}
+
+
+//Response BadGateway - HttpStatus 502
+{"Id":12,"Path":"/weatherforecast/get","TraceIdentifier":"8000000f-0004-ff00-b63f-84710c7967bb","Category":502,"CategoryDescription":"BadGateway","Message":["El sistema dependiente 'AppDemo' generó un error."]}
+
+
+//Response GatewayTimeout - HttpStatus 504
+{"Id":14,"Path":"/weatherforecast/get","TraceIdentifier":"80000014-0004-ff00-b63f-84710c7967bb","Category":504,"CategoryDescription":"GatewayTimeout","Message":["El sistema dependiente 'AppDemo' agotó el tiempo de espera."]}
 
 ```
 
