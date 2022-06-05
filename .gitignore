@@ -25,3 +25,5 @@
 /src/Reec.Inspection.SqlServer/obj
 /src/Reec.Api.Test.Nuget/bin
 /src/Reec.Api.Test.Nuget/obj
+/src/Reec.DataBase/.sonarqube
+/src/.vs/ProjectEvaluation

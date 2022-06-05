@@ -22,7 +22,7 @@ namespace Reec.DataBase
         /// <summary>
         /// Tiempo expresado en segundos.
         /// </summary>
-        private readonly int commandTimeOut = 30;
+        private readonly int commandTimeOut;
         private bool disposedValue;
 
         private TTransaction Transaction { get; set; }
@@ -34,12 +34,10 @@ namespace Reec.DataBase
             {
                 if (this._Connection == null)
                 {
-                    var conecction = Activator.CreateInstance<TConnection>();
-                    conecction.ConnectionString = connectionString;
-                    return conecction;
-                    //this._Connection =   new SqlConnection(connectionString);
+                    this._Connection = Activator.CreateInstance<TConnection>();
+                    this._Connection.ConnectionString = connectionString;
+                    return _Connection;
                 }
-
                 return this._Connection;
             }
         }

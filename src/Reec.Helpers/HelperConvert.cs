@@ -361,7 +361,7 @@ namespace Reec.Helpers
         public static DataSet StringXmlToDataSet(string stringXml)
         {
             using StringReader xmlSR = new StringReader(stringXml);
-            using DataSet ds = new DataSet();
+            DataSet ds = new DataSet();
             ds.ReadXml(xmlSR);
             return ds;
         }
