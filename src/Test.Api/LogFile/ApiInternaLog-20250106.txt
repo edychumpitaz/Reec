@@ -1,0 +1,232 @@
+2025-01-06 18:27:04.996  [INF] Inicio de aplicación Api Interno... {  } 
+2025-01-06 18:27:05.045  [FTL] Se produjo una excepción no controlada durante el arranque... {  } 
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\Edych\source\startup\Reec\src\Test.Api\Program.cs:line 61
+2025-01-06 18:27:28.715  [INF] Inicio de aplicación Api Interno... {  } 
+2025-01-06 18:27:28.763  [FTL] Se produjo una excepción no controlada durante el arranque... {  } 
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\Edych\source\startup\Reec\src\Test.Api\Program.cs:line 61
+2025-01-06 21:58:59.692  [INF] Inicio de aplicación Api Interno... {  } 
+2025-01-06 21:59:13.707 0HN9EOSUCHDJ8:00000005 [WRN] Campo 'parameter' de prueba. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestWarning", ConnectionId: "0HN9EOSUCHDJ8" } 
+2025-01-06 21:59:59.270 0HN9EOSUCHDJ8:00000006 [WRN] Prueba de validacón de lógica de negocio. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestBusinessLogic", ConnectionId: "0HN9EOSUCHDJ8" } 
+2025-01-06 22:04:33.937  [INF] Inicio de aplicación Api Interno... {  } 
+2025-01-06 22:08:35.678  [INF] Inicio de aplicación Api Interno... {  } 
+2025-01-06 22:08:43.375 0HN9EP29PU6Q0:00000005 [WRN] Campo 'parameter' de prueba. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestWarning", ConnectionId: "0HN9EP29PU6Q0" } 
+2025-01-06 22:18:45.017  [INF] Inicio de aplicación Api Interno... {  } 
+2025-01-06 22:27:12.781  [INF] Inicio de aplicación Api Interno... {  } 
+2025-01-06 22:27:33.087 0HN9EPCMTKUDF:00000005 [ERR] Failed executing DbCommand (54ms) [Parameters=[@p0='?' (Size = 100) (DbType = AnsiString), @p1='?' (DbType = Int32), @p2='?' (Size = 50) (DbType = AnsiString), @p3='?' (Size = 100) (DbType = AnsiString), @p4='?' (Scale = 7) (DbType = DateTime2), @p5='?' (DbType = Date), @p6='?' (Size = 40) (DbType = AnsiString), @p7='?' (Size = 8000) (DbType = AnsiString), @p8='?' (Size = 150) (DbType = AnsiString), @p9='?' (Size = 200) (DbType = AnsiString), @p10='?' (DbType = Int32), @p11='?' (Size = 8000) (DbType = AnsiString), @p12='?' (Size = 30) (DbType = AnsiString), @p13='?' (DbType = Boolean), @p14='?' (Size = 8000) (DbType = AnsiString), @p15='?' (Size = 100) (DbType = AnsiString), @p16='?' (Size = 8000) (DbType = AnsiString), @p17='?' (DbType = Int32), @p18='?' (Size = 50) (DbType = AnsiString), @p19='?' (Size = 2500) (DbType = AnsiString), @p20='?' (Size = 8000) (DbType = AnsiString), @p21='?' (Size = 8000) (DbType = AnsiString), @p22='?' (Size = 100) (DbType = AnsiString), @p23='?' (Size = 30) (DbType = AnsiString), @p24='?' (Size = 200) (DbType = AnsiString), @p25='?' (Size = 8000) (DbType = AnsiString), @p26='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [LogHttp] ([ApplicationName], [Category], [CategoryDescription], [ContentType], [CreateDate], [CreateDateOnly], [CreateUser], [ExceptionMessage], [Host], [HostPort], [HttpStatusCode], [InnerExceptionMessage], [IpAddress], [IsHttps], [MessageUser], [Method], [Path], [Port], [Protocol], [QueryString], [RequestBody], [RequestHeader], [RequestId], [Scheme], [Source], [StackTrace], [TraceIdentifier])
+OUTPUT INSERTED.[IdLogHttp]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25, @p26); { EventId: { Id: 20102, Name: "Microsoft.EntityFrameworkCore.Database.Command.CommandError" }, SourceContext: "Microsoft.EntityFrameworkCore.Database.Command", RequestPath: "/WeatherForecast/TestWarning", ConnectionId: "0HN9EPCMTKUDF" } 
+2025-01-06 22:27:33.123 0HN9EPCMTKUDF:00000005 [ERR] An exception occurred in the database while saving changes for context type 'Reec.Inspection.SqlServer.DbContextSqlServer'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'LogHttp'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:28ab573c-1596-4a02-98a3-8d1bf8d11ad2
+Error Number:208,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken) { EventId: { Id: 10000, Name: "Microsoft.EntityFrameworkCore.Update.SaveChangesFailed" }, SourceContext: "Microsoft.EntityFrameworkCore.Update", RequestPath: "/WeatherForecast/TestWarning", ConnectionId: "0HN9EPCMTKUDF" } 
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'LogHttp'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:28ab573c-1596-4a02-98a3-8d1bf8d11ad2
+Error Number:208,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2025-01-06 22:27:33.248 0HN9EPCMTKUDF:00000005 [ERR] Ocurrió un error al guardar log en Base de Datos. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestWarning", ConnectionId: "0HN9EPCMTKUDF" } 
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'LogHttp'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:28ab573c-1596-4a02-98a3-8d1bf8d11ad2
+Error Number:208,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Reec.Inspection.ReecExceptionMiddleware`1.TryHandleAsync(HttpContext httpContext, Exception exception) in C:\Users\Edych\source\startup\Reec\src\Reec.Inspection\ReecExceptionMiddleware.cs:line 89
+2025-01-06 22:43:16.648  [INF] Inicio de aplicación Api Interno... {  } 
+2025-01-06 22:43:25.625 0HN9EPLM5BUMG:00000005 [ERR] Failed executing DbCommand (52ms) [Parameters=[@p0='?' (Size = 100) (DbType = AnsiString), @p1='?' (DbType = Int32), @p2='?' (Size = 50) (DbType = AnsiString), @p3='?' (Size = 100) (DbType = AnsiString), @p4='?' (Scale = 7) (DbType = DateTime2), @p5='?' (DbType = Date), @p6='?' (Size = 40) (DbType = AnsiString), @p7='?' (Size = 8000) (DbType = AnsiString), @p8='?' (Size = 150) (DbType = AnsiString), @p9='?' (Size = 200) (DbType = AnsiString), @p10='?' (DbType = Int32), @p11='?' (Size = 8000) (DbType = AnsiString), @p12='?' (Size = 30) (DbType = AnsiString), @p13='?' (DbType = Boolean), @p14='?' (Size = 8000) (DbType = AnsiString), @p15='?' (Size = 100) (DbType = AnsiString), @p16='?' (Size = 8000) (DbType = AnsiString), @p17='?' (DbType = Int32), @p18='?' (Size = 50) (DbType = AnsiString), @p19='?' (Size = 2500) (DbType = AnsiString), @p20='?' (Size = 8000) (DbType = AnsiString), @p21='?' (Size = 8000) (DbType = AnsiString), @p22='?' (Size = 100) (DbType = AnsiString), @p23='?' (Size = 30) (DbType = AnsiString), @p24='?' (Size = 200) (DbType = AnsiString), @p25='?' (Size = 8000) (DbType = AnsiString), @p26='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [LogHttp] ([ApplicationName], [Category], [CategoryDescription], [ContentType], [CreateDate], [CreateDateOnly], [CreateUser], [ExceptionMessage], [Host], [HostPort], [HttpStatusCode], [InnerExceptionMessage], [IpAddress], [IsHttps], [MessageUser], [Method], [Path], [Port], [Protocol], [QueryString], [RequestBody], [RequestHeader], [RequestId], [Scheme], [Source], [StackTrace], [TraceIdentifier])
+OUTPUT INSERTED.[IdLogHttp]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25, @p26); { EventId: { Id: 20102, Name: "Microsoft.EntityFrameworkCore.Database.Command.CommandError" }, SourceContext: "Microsoft.EntityFrameworkCore.Database.Command", RequestPath: "/WeatherForecast/TestWarning", ConnectionId: "0HN9EPLM5BUMG" } 
+2025-01-06 22:43:25.674 0HN9EPLM5BUMG:00000005 [ERR] An exception occurred in the database while saving changes for context type 'Reec.Inspection.SqlServer.DbContextSqlServer'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'LogHttp'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:78e5a891-1bb6-471f-bb74-9184de34f600
+Error Number:208,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken) { EventId: { Id: 10000, Name: "Microsoft.EntityFrameworkCore.Update.SaveChangesFailed" }, SourceContext: "Microsoft.EntityFrameworkCore.Update", RequestPath: "/WeatherForecast/TestWarning", ConnectionId: "0HN9EPLM5BUMG" } 
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'LogHttp'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:78e5a891-1bb6-471f-bb74-9184de34f600
+Error Number:208,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2025-01-06 22:43:25.919 0HN9EPLM5BUMG:00000005 [ERR] Ocurrió un error al guardar log en Base de Datos. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestWarning", ConnectionId: "0HN9EPLM5BUMG" } 
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'LogHttp'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:78e5a891-1bb6-471f-bb74-9184de34f600
+Error Number:208,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Reec.Inspection.ReecExceptionMiddleware`1.TryHandleAsync(HttpContext httpContext, Exception exception) in C:\Users\Edych\source\startup\Reec\src\Reec.Inspection\ReecExceptionMiddleware.cs:line 89
+2025-01-06 22:44:24.543  [INF] Inicio de aplicación Api Interno... {  } 
+2025-01-06 22:44:48.280  [INF] Inicio de aplicación Api Interno... {  } 
+2025-01-06 22:44:48.870  [FTL] Se produjo una excepción no controlada durante el arranque... {  } 
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: Reec.Inspection.ReecExceptionMiddleware`1[Reec.Inspection.SqlServer.DbContextSqlServer] Lifetime: Transient ImplementationType: Reec.Inspection.ReecExceptionMiddleware`1[Reec.Inspection.SqlServer.DbContextSqlServer]': Unable to resolve service for type 'Reec.Inspection.ReecExceptionOptions' while attempting to activate 'Reec.Inspection.SqlServer.DbContextSqlServer'.) (Error while validating the service descriptor 'ServiceType: Reec.Inspection.SqlServer.DbContextSqlServer Lifetime: Transient ImplementationType: Reec.Inspection.SqlServer.DbContextSqlServer': Unable to resolve service for type 'Reec.Inspection.ReecExceptionOptions' while attempting to activate 'Reec.Inspection.SqlServer.DbContextSqlServer'.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: Reec.Inspection.ReecExceptionMiddleware`1[Reec.Inspection.SqlServer.DbContextSqlServer] Lifetime: Transient ImplementationType: Reec.Inspection.ReecExceptionMiddleware`1[Reec.Inspection.SqlServer.DbContextSqlServer]': Unable to resolve service for type 'Reec.Inspection.ReecExceptionOptions' while attempting to activate 'Reec.Inspection.SqlServer.DbContextSqlServer'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'Reec.Inspection.ReecExceptionOptions' while attempting to activate 'Reec.Inspection.SqlServer.DbContextSqlServer'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\Edych\source\startup\Reec\src\Test.Api\Program.cs:line 63
+ ---> (Inner Exception #1) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: Reec.Inspection.SqlServer.DbContextSqlServer Lifetime: Transient ImplementationType: Reec.Inspection.SqlServer.DbContextSqlServer': Unable to resolve service for type 'Reec.Inspection.ReecExceptionOptions' while attempting to activate 'Reec.Inspection.SqlServer.DbContextSqlServer'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'Reec.Inspection.ReecExceptionOptions' while attempting to activate 'Reec.Inspection.SqlServer.DbContextSqlServer'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)<---
+
+2025-01-06 22:51:30.894  [INF] Inicio de aplicación Api Interno... {  } 
+2025-01-06 22:51:56.855  [INF] Inicio de aplicación Api Interno... {  } 
+2025-01-06 22:52:07.736 0HN9EPQIOEV3P:00000005 [WRN] Campo 'parameter' de prueba. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestWarning", ConnectionId: "0HN9EPQIOEV3P" } 

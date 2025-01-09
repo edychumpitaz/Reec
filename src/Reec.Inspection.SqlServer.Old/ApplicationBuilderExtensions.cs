@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Reec.Inspection.SqlServer
+namespace Reec.Inspection.SqlServer.Old
 {
     public static class ApplicationBuilderExtensions
     {

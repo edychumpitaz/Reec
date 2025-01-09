@@ -1,0 +1,40 @@
+2025-01-07 10:41:56.685  [INF] Inicio de aplicación Api Interno... {  } 
+2025-01-07 10:42:00.612  [INF] Inicio de la migración de tablas { SourceContext: "Reec.Inspection.ReecWorker" } 
+2025-01-07 10:42:03.968  [INF] Fin de la migración de tablas { SourceContext: "Reec.Inspection.ReecWorker" } 
+2025-01-07 10:45:45.047  [INF] Inicio de aplicación Api Interno... {  } 
+2025-01-07 10:45:45.684  [INF] Reec: Inicio de la migración de tabla de log 'LogHttp'. { SourceContext: "Reec.Inspection.ReecWorker" } 
+2025-01-07 10:45:46.774  [INF] Reec: Fin de la migración de tabla de log 'LogHttp'. { SourceContext: "Reec.Inspection.ReecWorker" } 
+2025-01-07 10:47:24.150  [INF] Inicio de aplicación Api Interno... {  } 
+2025-01-07 10:47:24.661  [INF] Reec: Inicio de la migración de tabla de log 'LogHttp'. { SourceContext: "Reec.Inspection.ReecWorker" } 
+2025-01-07 10:47:25.798  [INF] Reec: Fin de la migración de tabla de log 'LogHttp'. { SourceContext: "Reec.Inspection.ReecWorker" } 
+2025-01-07 11:08:40.746  [INF] Inicio de aplicación Api Interno... {  } 
+2025-01-07 11:08:41.316  [INF] Reec: Inicio de la migración de tabla de log 'LogHttp'. { SourceContext: "Reec.Inspection.ReecWorker" } 
+2025-01-07 11:08:42.309  [INF] Reec: Fin de la migración de tabla de log 'LogHttp'. { SourceContext: "Reec.Inspection.ReecWorker" } 
+2025-01-07 11:08:50.567 0HN9F6M780UFE:00000005 [WRN] Campo 'parameter' de prueba. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestWarning", ConnectionId: "0HN9F6M780UFE" } 
+2025-01-07 11:14:42.772  [INF] Inicio de aplicación Api Interno... {  } 
+2025-01-07 11:14:43.415  [INF] Reec: Inicio de la migración de tabla de log 'LogHttp'. { SourceContext: "Reec.Inspection.ReecWorker" } 
+2025-01-07 11:14:44.487  [INF] Reec: Fin de la migración de tabla de log 'LogHttp'. { SourceContext: "Reec.Inspection.ReecWorker" } 
+2025-01-07 11:14:54.726 0HN9F6PJ597GP:00000005 [WRN] Prueba de validacón de lógica de negocio. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestBusinessLogic", ConnectionId: "0HN9F6PJ597GP" } 
+2025-01-07 11:15:49.048  [INF] Inicio de aplicación Api Interno... {  } 
+2025-01-07 11:15:49.625  [INF] Reec: Inicio de la migración de tabla de log 'LogHttp'. { SourceContext: "Reec.Inspection.ReecWorker" } 
+2025-01-07 11:15:50.612  [INF] Reec: Fin de la migración de tabla de log 'LogHttp'. { SourceContext: "Reec.Inspection.ReecWorker" } 
+2025-01-07 11:15:56.206 0HN9F6Q6UDMOR:00000005 [WRN] Prueba de validacón de lógica de negocio. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestBusinessLogic", ConnectionId: "0HN9F6Q6UDMOR" } 
+2025-01-07 11:16:36.926 0HN9F6Q6UDMOR:00000009 [WRN] Prueba de validacón de lógica de negocio. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestBusinessLogic", ConnectionId: "0HN9F6Q6UDMOR" } 
+2025-01-07 11:19:00.844  [INF] Inicio de aplicación Api Interno... {  } 
+2025-01-07 11:19:01.366  [INF] Reec: Inicio de la migración de tabla de log 'LogHttp'. { SourceContext: "Reec.Inspection.ReecWorker" } 
+2025-01-07 11:19:02.319  [INF] Reec: Fin de la migración de tabla de log 'LogHttp'. { SourceContext: "Reec.Inspection.ReecWorker" } 
+2025-01-07 11:19:07.670 0HN9F6S01D8KH:00000005 [WRN] Prueba de validacón de lógica de negocio. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestBusinessLogic", ConnectionId: "0HN9F6S01D8KH" } 
+2025-01-07 11:21:29.672 0HN9F6S01D8KI:00000003 [WRN] Campo 'parameter' de prueba. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestWarning", ConnectionId: "0HN9F6S01D8KI" } 
+2025-01-07 11:21:35.620 0HN9F6S01D8KI:00000004 [WRN] Prueba de validacón de lógica de negocio. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestBusinessLogic", ConnectionId: "0HN9F6S01D8KI" } 
+2025-01-07 11:33:25.393  [INF] Inicio de aplicación Api Interno... {  } 
+2025-01-07 11:33:39.087 0HN9F741D4FH9:00000005 [WRN] Campo 'parameter' de prueba. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestWarning", ConnectionId: "0HN9F741D4FH9" } 
+2025-01-07 11:33:42.418 0HN9F741D4FH9:00000006 [WRN] Campo 'parameter' de prueba. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestWarning", ConnectionId: "0HN9F741D4FH9" } 
+2025-01-07 11:33:45.950 0HN9F741D4FH9:00000007 [WRN] Prueba de validacón de lógica de negocio. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestBusinessLogic", ConnectionId: "0HN9F741D4FH9" } 
+2025-01-07 11:49:52.082  [INF] Inicio de aplicación Api Interno... {  } 
+2025-01-07 11:49:58.533 0HN9F7D7F1T40:00000005 [WRN] Prueba de validacón de lógica de negocio. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestBusinessLogic", ConnectionId: "0HN9F7D7F1T40" } 
+2025-01-07 12:23:46.012  [INF] Inicio de aplicación Api Interno... {  } 
+2025-01-07 12:23:55.362 0HN9F805HMEGG:00000005 [WRN] Prueba de validacón de lógica de negocio. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestBusinessLogic", ConnectionId: "0HN9F805HMEGG" } 
+2025-01-07 12:36:38.550  [INF] Inicio de aplicación Api Interno... {  } 
+2025-01-07 12:36:39.167  [INF] Reec: Inicio de la migración de tabla de log 'LogHttp'. { SourceContext: "Reec.Inspection.ReecWorker" } 
+2025-01-07 12:36:40.251  [INF] Reec: Fin de la migración de tabla de log 'LogHttp'. { SourceContext: "Reec.Inspection.ReecWorker" } 
+2025-01-07 12:36:52.801 0HN9F87C4RFVR:00000005 [WRN] Campo 'parameter' de prueba. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestWarning", ConnectionId: "0HN9F87C4RFVR" } 

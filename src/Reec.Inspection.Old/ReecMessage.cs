@@ -1,18 +1,15 @@
-﻿using Reec.Inspection.Extensions;
-using static Reec.Inspection.ReecEnums;
+﻿using System.Collections.Generic;
+using static Reec.Inspection.Old.ReecEnums;
 
-
-namespace Reec.Inspection
+namespace Reec.Inspection.Old
 {
     public class ReecMessage
     {
-        public ReecMessage()
-        {
-        }
 
         public ReecMessage(Category category, string message, string path = null)
         {
-            this.Message = [message];
+
+            this.Message = new List<string>() { message };
             this.Category = category;
             this.Path = path;
         }
@@ -40,6 +37,7 @@ namespace Reec.Inspection
         /// </summary>
         public string TraceIdentifier { get; set; }
 
+
         /// <summary>
         /// Categoria de mensaje de donde se origina el error o la información.
         /// </summary>
@@ -49,7 +47,7 @@ namespace Reec.Inspection
         {
             get
             {
-                return Category.ToString().AddSpacesToCamelCase();
+                return Category.ToString();
             }
         }
 

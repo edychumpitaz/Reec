@@ -1,10 +1,9 @@
-﻿using System;
-using System.Net;
+﻿using System.Net;
 using static Reec.Inspection.ReecEnums;
 
-namespace Reec.Inspection
+namespace Reec.Inspection.Entities
 {
-    public class BeLogHttp //, IGenerateIdentity<BeLogHttp>
+    public class LogHttp
     {
 
         public int IdLogHttp { get; set; }
@@ -32,12 +31,23 @@ namespace Reec.Inspection
         public string MessageUser { get; set; }
 
         /// <summary>
-        /// Mensaje de Error producida por una excepción.
+        /// Tiempo transcurrido.
+        /// </summary>
+        public TimeSpan? Duration { get; set; }
+
+        /// <summary>
+        /// Obtiene o establece un identificador único para representar esta solicitud en los registros de seguimiento. 
+        /// <para>Se obtiene desde las cabeceras del request, este valor suele venir por el marcado de un ApiGateway o Balanceador.</para>
+        /// </summary>
+        public string RequestId { get; set; }
+
+        /// <summary>
+        /// Mensaje de Error producido por una excepción.
         /// </summary>
         public string ExceptionMessage { get; set; }
 
         /// <summary>
-        /// Mensaje de Error producida por una excepción que a su vez tiene un InnerException.
+        /// Mensaje de Error producido por una excepción que a su vez tiene un InnerException.
         /// </summary>
         public string InnerExceptionMessage { get; set; }
 
@@ -80,6 +90,11 @@ namespace Reec.Inspection
         public string Path { get; set; }
 
         /// <summary>
+        /// Parametros de consulta que se encuentra en la URL de la petición Request.
+        /// </summary>
+        public string QueryString { get; set; }
+
+        /// <summary>
         /// Origen de la excepción.
         /// </summary>
         public string Source { get; set; }
@@ -103,7 +118,7 @@ namespace Reec.Inspection
         /// <summary>
         /// Datos enviados por el cliente en el HEADER de la solicitud HTTP.
         /// </summary>
-        public string RequestHeader { get; set; }
+        public Dictionary<string, string> RequestHeader { get; set; }
 
         /// <summary>
         /// Datos enviados por el cliente en el BODY de la solicitud HTTP.
@@ -116,13 +131,17 @@ namespace Reec.Inspection
         public string StackTrace { get; set; }
 
         /// <summary>
-        /// Direccion IP del cliente que envia el request.
+        /// Dirección IP del cliente que envia el request.
         /// </summary>
         public string IpAddress { get; set; }
 
+        public DateOnly? CreateDateOnly { get; set; }
+
+        /// <summary>
+        /// Obtiene el usuario autenticado desde un Json Web Token(jwt).
+        /// </summary>
         public string CreateUser { get; set; }
         public DateTime? CreateDate { get; set; }
 
     }
-
 }

@@ -1,6 +1,9 @@
-﻿using static Reec.Inspection.ReecEnums;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using static Reec.Inspection.Old.ReecEnums;
 
-namespace Reec.Inspection
+namespace Reec.Inspection.Old
 {
     public class ReecException : Exception
     {
@@ -10,7 +13,7 @@ namespace Reec.Inspection
         /// <summary>
         /// Excepción capturada por el desarrollador cuando necesita colocar un try catch
         /// </summary>
-        public string ExceptionMessage { get => this.Data[nameof(ExceptionMessage)]?.ToString(); }
+        public string ExceptionMessage { get; set; }
 
         /// <summary>
         /// Se utiliza para mensajes simples.
@@ -44,7 +47,7 @@ namespace Reec.Inspection
             : base(exceptionMessage)
         {
             this.ReecMessage = new ReecMessage(category, messageUser);
-            this.Data.Add(nameof(ExceptionMessage), exceptionMessage);
+            this.ExceptionMessage = exceptionMessage;
         }
 
         /// <summary>
@@ -58,8 +61,7 @@ namespace Reec.Inspection
             : base(exceptionMessage, innerException)
         {
             this.ReecMessage = new ReecMessage(category, messageUser);
-            this.Data.Add(nameof(ExceptionMessage), exceptionMessage);
-            //this.Data.Add("InnerException", innerException);
+            this.ExceptionMessage = exceptionMessage;
         }
 
 

@@ -1,0 +1,65 @@
+2024-12-31 13:20:07.572  [INF] Inicio de aplicación Api Interno... {  } 
+2024-12-31 13:20:07.623  [FTL] Se produjo una excepción no controlada durante el arranque... {  } 
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\Edych\source\startup\Reec\src\Test.Api\Program.cs:line 60
+2024-12-31 13:20:48.169  [INF] Inicio de aplicación Api Interno... {  } 
+2024-12-31 13:20:48.216  [FTL] Se produjo una excepción no controlada durante el arranque... {  } 
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\Edych\source\startup\Reec\src\Test.Api\Program.cs:line 60
+2024-12-31 13:23:49.072  [INF] Inicio de aplicación Api Interno... {  } 
+2024-12-31 13:23:49.124  [FTL] Se produjo una excepción no controlada durante el arranque... {  } 
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\Edych\source\startup\Reec\src\Test.Api\Program.cs:line 60
+2024-12-31 13:24:18.004  [INF] Inicio de aplicación Api Interno... {  } 
+2024-12-31 13:24:18.055  [FTL] Se produjo una excepción no controlada durante el arranque... {  } 
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\Edych\source\startup\Reec\src\Test.Api\Program.cs:line 60
+2024-12-31 13:27:54.779  [INF] Inicio de aplicación Api Interno... {  } 
+2024-12-31 13:27:54.828  [FTL] Se produjo una excepción no controlada durante el arranque... {  } 
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\Edych\source\startup\Reec\src\Test.Api\Program.cs:line 60
+2024-12-31 13:30:39.300  [INF] Inicio de aplicación Api Interno... {  } 
+2024-12-31 13:30:39.347  [FTL] Se produjo una excepción no controlada durante el arranque... {  } 
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\Edych\source\startup\Reec\src\Test.Api\Program.cs:line 60
+2024-12-31 13:33:11.783  [INF] Inicio de aplicación Api Interno... {  } 
+2024-12-31 13:33:19.275 0HN99P6AK44FI:00000005 [WRN] Campo 'parameter' de prueba. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestWarning", ConnectionId: "0HN99P6AK44FI" } 
+2024-12-31 13:37:10.205 0HN99P6AK44FI:00000006 [WRN] Campo 'parameter' de prueba. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestWarning", ConnectionId: "0HN99P6AK44FI" } 
+2024-12-31 13:42:33.251  [INF] Inicio de aplicación Api Interno... {  } 
+2024-12-31 13:42:42.708 0HN99PBHT4L6U:00000005 [WRN] Prueba de validacón de lógica de negocio. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestBusinessLogic", ConnectionId: "0HN99PBHT4L6U" } 

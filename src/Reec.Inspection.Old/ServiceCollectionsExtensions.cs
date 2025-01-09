@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Reec.Inspection
+namespace Reec.Inspection.Old
 {
     public static class ServiceCollectionsExtensions
     {

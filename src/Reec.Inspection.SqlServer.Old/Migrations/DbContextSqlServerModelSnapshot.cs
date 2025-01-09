@@ -4,11 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Reec.Inspection.SqlServer;
+using Reec.Inspection.SqlServer.Old;
 
-#nullable disable
-
-namespace Reec.Inspection.SqlServer.Migrations
+namespace Reec.Inspection.SqlServer.Old.Migrations
 {
     [DbContext(typeof(DbContextSqlServer))]
     partial class DbContextSqlServerModelSnapshot : ModelSnapshot
@@ -17,18 +15,16 @@ namespace Reec.Inspection.SqlServer.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.11")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128);
+                .HasAnnotation("ProductVersion", "3.1.23")
+                .HasAnnotation("Relational:MaxIdentifierLength", 128)
+                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("Reec.Inspection.Entities.LogHttp", b =>
+            modelBuilder.Entity("Reec.Inspection.BeLogHttp", b =>
                 {
                     b.Property<int>("IdLogHttp")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdLogHttp"));
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("ApplicationName")
                         .HasColumnType("varchar(100)");
@@ -37,37 +33,31 @@ namespace Reec.Inspection.SqlServer.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("CategoryDescription")
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("varchar(50)")
+                        .HasMaxLength(50);
 
                     b.Property<string>("ContentType")
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("varchar(100)")
+                        .HasMaxLength(100);
 
                     b.Property<DateTime?>("CreateDate")
                         .HasColumnType("DateTime2(7)");
 
-                    b.Property<DateOnly?>("CreateDateOnly")
-                        .HasColumnType("Date");
-
                     b.Property<string>("CreateUser")
+                        .HasColumnType("varchar(40)")
                         .HasMaxLength(40)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(40)");
-
-                    b.Property<TimeSpan?>("Duration")
-                        .HasColumnType("time(7)");
+                        .IsUnicode(false);
 
                     b.Property<string>("ExceptionMessage")
                         .HasColumnType("varchar(max)");
 
                     b.Property<string>("Host")
-                        .HasMaxLength(150)
-                        .HasColumnType("varchar(150)");
+                        .HasColumnType("varchar(150)")
+                        .HasMaxLength(150);
 
                     b.Property<string>("HostPort")
-                        .HasMaxLength(200)
-                        .HasColumnType("varchar(200)");
+                        .HasColumnType("varchar(200)")
+                        .HasMaxLength(200);
 
                     b.Property<int>("HttpStatusCode")
                         .HasColumnType("int");
@@ -76,8 +66,8 @@ namespace Reec.Inspection.SqlServer.Migrations
                         .HasColumnType("varchar(max)");
 
                     b.Property<string>("IpAddress")
-                        .HasMaxLength(30)
-                        .HasColumnType("varchar(30)");
+                        .HasColumnType("varchar(30)")
+                        .HasMaxLength(30);
 
                     b.Property<bool>("IsHttps")
                         .HasColumnType("bit");
@@ -86,8 +76,8 @@ namespace Reec.Inspection.SqlServer.Migrations
                         .HasColumnType("varchar(max)");
 
                     b.Property<string>("Method")
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("varchar(100)")
+                        .HasMaxLength(100);
 
                     b.Property<string>("Path")
                         .HasColumnType("varchar(max)");
@@ -98,38 +88,30 @@ namespace Reec.Inspection.SqlServer.Migrations
                     b.Property<string>("Protocol")
                         .HasColumnType("varchar(50)");
 
-                    b.Property<string>("QueryString")
-                        .HasMaxLength(2500)
-                        .HasColumnType("varchar(2500)");
-
                     b.Property<string>("RequestBody")
-                        .HasColumnType("varchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("RequestHeader")
-                        .HasColumnType("varchar(max)");
-
-                    b.Property<string>("RequestId")
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Scheme")
-                        .HasMaxLength(30)
-                        .HasColumnType("varchar(30)");
+                        .HasColumnType("varchar(30)")
+                        .HasMaxLength(30);
 
                     b.Property<string>("Source")
-                        .HasMaxLength(200)
-                        .HasColumnType("varchar(200)");
+                        .HasColumnType("varchar(200)")
+                        .HasMaxLength(200);
 
                     b.Property<string>("StackTrace")
-                        .HasColumnType("varchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("TraceIdentifier")
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("varchar(100)")
+                        .HasMaxLength(100);
 
                     b.HasKey("IdLogHttp");
 
-                    b.ToTable("LogHttp", (string)null);
+                    b.ToTable("LogHttp");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,0 +1,44 @@
+2025-01-09 00:09:13.447  [INF] Inicio de aplicación Api Interno... {  } 
+2025-01-09 00:09:13.498  [FTL] Se produjo una excepción no controlada durante el arranque... {  } 
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\Edych\source\startup\Reec\src\Test.Api\Program.cs:line 67
+2025-01-09 00:09:39.491  [INF] Inicio de aplicación Api Interno... {  } 
+2025-01-09 00:09:39.542  [FTL] Se produjo una excepción no controlada durante el arranque... {  } 
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\Edych\source\startup\Reec\src\Test.Api\Program.cs:line 67
+2025-01-09 00:11:08.794  [INF] Inicio de aplicación Api Interno... {  } 
+2025-01-09 00:11:08.844  [FTL] Se produjo una excepción no controlada durante el arranque... {  } 
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\Edych\source\startup\Reec\src\Test.Api\Program.cs:line 66
+2025-01-09 00:11:38.555  [INF] Inicio de aplicación Api Interno... {  } 
+2025-01-09 00:11:38.606  [FTL] Se produjo una excepción no controlada durante el arranque... {  } 
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\Edych\source\startup\Reec\src\Test.Api\Program.cs:line 66
+2025-01-09 00:12:42.136  [INF] Inicio de aplicación Api Interno... {  } 
+2025-01-09 00:12:51.941 0HN9GDGVGMR3L:00000005 [WRN] Campo 'parameter' de prueba. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestWarning", ConnectionId: "0HN9GDGVGMR3L" } 
+2025-01-09 00:12:54.118 0HN9GDGVGMR3L:00000006 [WRN] Campo 'parameter' de prueba. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestWarning", ConnectionId: "0HN9GDGVGMR3L" } 
+2025-01-09 00:12:55.524 0HN9GDGVGMR3L:00000007 [WRN] Campo 'parameter' de prueba. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestWarning", ConnectionId: "0HN9GDGVGMR3L" } 

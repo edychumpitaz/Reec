@@ -1,57 +1,56 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Description>Guardado automático de log de errores en base de datos, te permite crear un Id de identificación del error para que pueda ser inspeccionado como un ticket de atención. 
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>disable</Nullable>
+	</PropertyGroup>
 
-Notas:Version 1.0.5
-Se agrego flag "EnableMigrations" de migración.
-EF Core 3.1 
+	<PropertyGroup>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Description>
+Guardado automático de log de errores en base de datos, te permite crear un Id de identificación del error para que pueda ser inspeccionado como un ticket de atención.
 
-Algunos datos de guardado:
+Notas:Version 8.0.11
+* Implementación opcional de ProblemDetails
+* Incremento del performance
+* Corrección de bug con el DbContext al tener alta concurrencia.
 
-*Path
-*RequestBody
-*RequestHeader
-*TraceIdentifier
-*ExceptionMessage
-*InnerExceptionMessage
-*StackTrace</Description>
-    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/edychumpitaz/Reec</PackageProjectUrl>
-    <Authors>Edy Erwin Chumpitaz Ramos</Authors>
-    <RepositoryUrl>https://github.com/edychumpitaz/Reec</RepositoryUrl>
-    <RepositoryType>GitHub</RepositoryType>
-    <PackageTags>Reec, Exception, Log, Audit, Auditoria, Error</PackageTags>
-    <AssemblyVersion>1.0.5.0</AssemblyVersion>
-    <FileVersion>1.0.5.0</FileVersion>
-    <Version>1.0.5</Version>
-    <PackageReleaseNotes>Notas: Versión 1.0.5
-Se agrego flag "EnableMigrations" de migración.
-EF Core 3.1</PackageReleaseNotes>
-  </PropertyGroup>
+_ QueryString: captura de parametros de la URL.
+_ Protocol: captura el protocolo de la petición http.
+_ Scheme: captura el esquema de la petición http.
+_ MinCategory: establece el guardado mínimo.
+_ IpAddress: puede tomar una variable de los headers.
+_ RequestId: puede tomar una variable de los headers.
+_ Duration: ahora captura el tiempo transcurrido.
+_ RequestHeader: ahora se guarda como diccionario en Base de datos
+_ EnableBuffering: ahora puedes deshabilitar la lectura de los body.
+_ InternalServerErrorMessage: ahora puedes establecer tu propio mensaje.
+_ ApplicationErrorMessage: ahora puedes establecer tu propio mensaje.
+		</Description>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/edychumpitaz/Reec</PackageProjectUrl>
+		<Authors>Edy Erwin Chumpitaz Ramos</Authors>
+		<RepositoryUrl>https://github.com/edychumpitaz/Reec</RepositoryUrl>
+		<RepositoryType>GitHub</RepositoryType>
+		<PackageTags>Reec, Exception, Log, Audit, Auditoria, Error</PackageTags>
+		<AssemblyVersion>8.0.11</AssemblyVersion>
+		<FileVersion>8.0.11</FileVersion>
+		<Version>8.0.11</Version>
+		<PackageReleaseNotes>
+			Notas: Versión 8.0.11
+		</PackageReleaseNotes>
+	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
 		<OutputPath>C:\NugetLocal\Reec.Inspection</OutputPath>
 		<DocumentationFile>C:\NugetLocal\Reec.Inspection\Reec.Inspection.xml</DocumentationFile>
 	</PropertyGroup>
-	
-  <ItemGroup>
-    <Compile Remove="BeLogBase.cs" />
-    <Compile Remove="ReecInspection.cs" />
-  </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.23" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.23" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.23">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="3.1.23" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.MiddlewareAnalysis" Version="8.0.11" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.11" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.11" />
+	</ItemGroup>
 
 </Project>

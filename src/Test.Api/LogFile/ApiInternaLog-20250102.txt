@@ -1,0 +1,113 @@
+2025-01-02 13:30:32.472  [INF] Inicio de aplicación Api Interno... {  } 
+2025-01-02 14:13:54.961  [INF] Inicio de aplicación Api Interno... {  } 
+2025-01-02 14:16:33.842 0HN9BC6D6OPQ8:00000005 [ERR] Ocurrió un error al guardar log en Base de Datos. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestBusinessLogic", ConnectionId: "0HN9BC6D6OPQ8" } 
+System.NotSupportedException: The type 'System.Object' is not a supported dictionary key using converter of type 'System.Text.Json.Serialization.Converters.DefaultObjectConverter'. Path: $.nombre | LineNumber: 1 | BytePositionInLine: 11.
+ ---> System.NotSupportedException: The type 'System.Object' is not a supported dictionary key using converter of type 'System.Text.Json.Serialization.Converters.DefaultObjectConverter'.
+   at System.Text.Json.ThrowHelper.ThrowNotSupportedException_DictionaryKeyTypeNotSupported(Type keyType, JsonConverter converter)
+   at System.Text.Json.Serialization.Converters.ObjectConverter.ReadAsPropertyNameCore(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options)
+   at System.Text.Json.Serialization.JsonDictionaryConverter`3.<OnTryRead>g__ReadDictionaryKey|10_0(JsonConverter`1 keyConverter, Utf8JsonReader& reader, ReadStack& state, JsonSerializerOptions options)
+   at System.Text.Json.Serialization.JsonDictionaryConverter`3.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, TDictionary& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   --- End of inner exception stack trace ---
+   at System.Text.Json.ThrowHelper.ThrowNotSupportedException(ReadStack& state, Utf8JsonReader& reader, NotSupportedException ex)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.ContinueDeserialize(ReadBufferState& bufferState, JsonReaderState& jsonReaderState, ReadStack& readStack)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.Deserialize(Stream utf8Json)
+   at Reec.Inspection.ReecExceptionMiddleware`1.ErrorControlado(ReecMessage reecMessage, HttpContext httpContext, Exception ex, String exceptionMessage) in C:\Users\Edych\source\startup\Reec\src\Reec.Inspection\ReecExceptionMiddleware.cs:line 148
+   at Reec.Inspection.ReecExceptionMiddleware`1.TryHandleAsync(HttpContext httpContext, Exception exception) in C:\Users\Edych\source\startup\Reec\src\Reec.Inspection\ReecExceptionMiddleware.cs:line 96
+2025-01-02 14:20:57.056  [INF] Inicio de aplicación Api Interno... {  } 
+2025-01-02 14:21:16.811 0HN9BCAB077JU:00000005 [WRN] Prueba de validacón de lógica de negocio. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestBusinessLogic", ConnectionId: "0HN9BCAB077JU" } 
+2025-01-02 18:09:18.762  [INF] Inicio de aplicación Api Interno... {  } 
+2025-01-02 18:09:18.818  [FTL] Se produjo una excepción no controlada durante el arranque... {  } 
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\Edych\source\startup\Reec\src\Test.Api\Program.cs:line 61
+2025-01-02 18:09:56.901  [INF] Inicio de aplicación Api Interno... {  } 
+2025-01-02 18:09:56.949  [FTL] Se produjo una excepción no controlada durante el arranque... {  } 
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\Edych\source\startup\Reec\src\Test.Api\Program.cs:line 61
+2025-01-02 18:40:48.771  [INF] Inicio de aplicación Api Interno... {  } 
+2025-01-02 18:40:48.824  [FTL] Se produjo una excepción no controlada durante el arranque... {  } 
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\Edych\source\startup\Reec\src\Test.Api\Program.cs:line 61
+2025-01-02 18:47:28.223  [INF] Inicio de aplicación Api Interno... {  } 
+2025-01-02 18:47:28.284  [FTL] Se produjo una excepción no controlada durante el arranque... {  } 
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\Edych\source\startup\Reec\src\Test.Api\Program.cs:line 61
+2025-01-02 18:48:31.186  [INF] Inicio de aplicación Api Interno... {  } 
+2025-01-02 18:48:31.240  [FTL] Se produjo una excepción no controlada durante el arranque... {  } 
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\Edych\source\startup\Reec\src\Test.Api\Program.cs:line 61
+2025-01-02 18:49:07.028  [INF] Inicio de aplicación Api Interno... {  } 
+2025-01-02 18:49:07.075  [FTL] Se produjo una excepción no controlada durante el arranque... {  } 
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\Edych\source\startup\Reec\src\Test.Api\Program.cs:line 61
+2025-01-02 18:52:11.481  [INF] Inicio de aplicación Api Interno... {  } 
+2025-01-02 18:52:26.290 0HN9BH1T4DI4B:00000005 [WRN] Campo 'parameter' de prueba. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestWarning", ConnectionId: "0HN9BH1T4DI4B" } 
+2025-01-02 18:52:32.892 0HN9BH1T4DI4B:00000006 [WRN] Prueba de validacón de lógica de negocio. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestBusinessLogic", ConnectionId: "0HN9BH1T4DI4B" } 
+2025-01-02 18:52:35.339 0HN9BH1T4DI4B:00000007 [WRN] Prueba de validacón de lógica de negocio. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestBusinessLogic", ConnectionId: "0HN9BH1T4DI4B" } 
+2025-01-02 18:52:35.908 0HN9BH1T4DI4B:00000008 [WRN] Prueba de validacón de lógica de negocio. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestBusinessLogic", ConnectionId: "0HN9BH1T4DI4B" } 
+2025-01-02 18:52:37.685 0HN9BH1T4DI4B:00000009 [WRN] Campo 'parameter' de prueba. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestWarning", ConnectionId: "0HN9BH1T4DI4B" } 
+2025-01-02 18:54:13.829 0HN9BH1T4DI4B:0000000A [WRN] Prueba de validacón de lógica de negocio. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestBusinessLogic", ConnectionId: "0HN9BH1T4DI4B" } 
+2025-01-02 18:54:14.111 0HN9BH1T4DI4B:0000000B [WRN] Prueba de validacón de lógica de negocio. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestBusinessLogic", ConnectionId: "0HN9BH1T4DI4B" } 
+2025-01-02 18:54:14.300 0HN9BH1T4DI4B:0000000C [WRN] Prueba de validacón de lógica de negocio. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestBusinessLogic", ConnectionId: "0HN9BH1T4DI4B" } 
+2025-01-02 18:54:14.467 0HN9BH1T4DI4B:0000000D [WRN] Prueba de validacón de lógica de negocio. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestBusinessLogic", ConnectionId: "0HN9BH1T4DI4B" } 
+2025-01-02 18:54:14.622 0HN9BH1T4DI4B:0000000E [WRN] Prueba de validacón de lógica de negocio. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestBusinessLogic", ConnectionId: "0HN9BH1T4DI4B" } 
+2025-01-02 18:54:14.785 0HN9BH1T4DI4B:0000000F [WRN] Prueba de validacón de lógica de negocio. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestBusinessLogic", ConnectionId: "0HN9BH1T4DI4B" } 
+2025-01-02 18:54:14.981 0HN9BH1T4DI4B:00000010 [WRN] Prueba de validacón de lógica de negocio. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestBusinessLogic", ConnectionId: "0HN9BH1T4DI4B" } 
+2025-01-02 18:54:15.083 0HN9BH1T4DI4B:00000011 [WRN] Prueba de validacón de lógica de negocio. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestBusinessLogic", ConnectionId: "0HN9BH1T4DI4B" } 
+2025-01-02 18:54:15.211 0HN9BH1T4DI4B:00000012 [WRN] Prueba de validacón de lógica de negocio. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestBusinessLogic", ConnectionId: "0HN9BH1T4DI4B" } 
+2025-01-02 18:54:15.373 0HN9BH1T4DI4B:00000013 [WRN] Prueba de validacón de lógica de negocio. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestBusinessLogic", ConnectionId: "0HN9BH1T4DI4B" } 
+2025-01-02 18:54:15.525 0HN9BH1T4DI4B:00000014 [WRN] Prueba de validacón de lógica de negocio. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestBusinessLogic", ConnectionId: "0HN9BH1T4DI4B" } 
+2025-01-02 18:54:15.654 0HN9BH1T4DI4B:00000015 [WRN] Prueba de validacón de lógica de negocio. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestBusinessLogic", ConnectionId: "0HN9BH1T4DI4B" } 
+2025-01-02 18:54:15.812 0HN9BH1T4DI4B:00000016 [WRN] Prueba de validacón de lógica de negocio. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestBusinessLogic", ConnectionId: "0HN9BH1T4DI4B" } 
+2025-01-02 18:54:15.956 0HN9BH1T4DI4B:00000017 [WRN] Prueba de validacón de lógica de negocio. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestBusinessLogic", ConnectionId: "0HN9BH1T4DI4B" } 
+2025-01-02 18:54:16.109 0HN9BH1T4DI4B:00000018 [WRN] Prueba de validacón de lógica de negocio. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestBusinessLogic", ConnectionId: "0HN9BH1T4DI4B" } 
+2025-01-02 18:54:16.252 0HN9BH1T4DI4B:00000019 [WRN] Prueba de validacón de lógica de negocio. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestBusinessLogic", ConnectionId: "0HN9BH1T4DI4B" } 
+2025-01-02 18:54:16.401 0HN9BH1T4DI4B:0000001A [WRN] Prueba de validacón de lógica de negocio. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestBusinessLogic", ConnectionId: "0HN9BH1T4DI4B" } 
+2025-01-02 18:54:16.546 0HN9BH1T4DI4B:0000001B [WRN] Prueba de validacón de lógica de negocio. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestBusinessLogic", ConnectionId: "0HN9BH1T4DI4B" } 
+2025-01-02 18:54:16.693 0HN9BH1T4DI4B:0000001C [WRN] Prueba de validacón de lógica de negocio. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestBusinessLogic", ConnectionId: "0HN9BH1T4DI4B" } 
+2025-01-02 18:54:16.857 0HN9BH1T4DI4B:0000001D [WRN] Prueba de validacón de lógica de negocio. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestBusinessLogic", ConnectionId: "0HN9BH1T4DI4B" } 
+2025-01-02 18:54:16.965 0HN9BH1T4DI4B:0000001E [WRN] Prueba de validacón de lógica de negocio. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestBusinessLogic", ConnectionId: "0HN9BH1T4DI4B" } 
+2025-01-02 18:54:17.106 0HN9BH1T4DI4B:0000001F [WRN] Prueba de validacón de lógica de negocio. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestBusinessLogic", ConnectionId: "0HN9BH1T4DI4B" } 
+2025-01-02 18:54:17.237 0HN9BH1T4DI4B:00000020 [WRN] Prueba de validacón de lógica de negocio. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestBusinessLogic", ConnectionId: "0HN9BH1T4DI4B" } 
+2025-01-02 18:54:17.390 0HN9BH1T4DI4B:00000021 [WRN] Prueba de validacón de lógica de negocio. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestBusinessLogic", ConnectionId: "0HN9BH1T4DI4B" } 
+2025-01-02 18:54:17.519 0HN9BH1T4DI4B:00000022 [WRN] Prueba de validacón de lógica de negocio. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestBusinessLogic", ConnectionId: "0HN9BH1T4DI4B" } 
+2025-01-02 18:54:17.716 0HN9BH1T4DI4B:00000023 [WRN] Prueba de validacón de lógica de negocio. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestBusinessLogic", ConnectionId: "0HN9BH1T4DI4B" } 
+2025-01-02 18:54:18.063 0HN9BH1T4DI4B:00000024 [WRN] Prueba de validacón de lógica de negocio. { SourceContext: "Reec.Inspection.ReecExceptionMiddleware", RequestPath: "/WeatherForecast/TestBusinessLogic", ConnectionId: "0HN9BH1T4DI4B" } 
